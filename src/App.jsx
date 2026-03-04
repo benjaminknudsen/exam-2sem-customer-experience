@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <Footer />
     </>
   );
 }
