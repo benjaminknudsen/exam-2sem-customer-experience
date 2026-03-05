@@ -6,6 +6,7 @@ import pkg from "./package.json";
 export default defineConfig(({ command }) => {
   return {
     plugins: [react()],
-    base: command === "serve" ? "/" : pkg.base
+    base: command === "serve" ? "/exam-2sem-customer-experience/" : pkg.base
   };
 });
+
