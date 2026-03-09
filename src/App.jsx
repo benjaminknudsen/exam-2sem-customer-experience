@@ -12,6 +12,7 @@ export default function App() {
   return (
     <>
       <Navbar />
+      <div className="shipping-banner">Hit 499 DKK. Shipping's on us.</div>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
