@@ -9,7 +9,7 @@ export default function ContactPage() {
 
         <section className="contact-card">
           <p>
-            <strong>Email:</strong> bluntcontact.gmail.com
+            <strong>Email:</strong> blunt@contact.com
           </p>
           <p>
             <strong>Telefon:</strong> +45 12 34 56 78
@@ -17,7 +17,7 @@ export default function ContactPage() {
           <p>
             <strong>Åbningstid:</strong> Mon-Sun 09:00-16:00
           </p>
-          <a className="contact-button" href="mailto:bluntcontact@gmail.com">
+          <a className="contact-button" href="mailto:blunt@contact.com">
             Write to us
           </a>
         </section>

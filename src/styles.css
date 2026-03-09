@@ -73,6 +73,53 @@ nav a.active {
   letter-spacing: 0.1rem;
 }
 
+.home-main {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-hero-wrap {
+  position: relative;
+}
+
+.home-hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  border-radius: 0;
+}
+
+.home-cta-button {
+  position: absolute;
+  left: 35%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  background: #F50135;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
+  padding: 1rem 4rem;
+  border-radius: 6px;
+  letter-spacing: 0.1rem;
+}
+
+.home-cta-button:hover {
+  background: #e30031;
+}
+
+@media (max-width: 900px) {
+  .home-cta-button {
+    left: 50%;
+    top: 44%;
+    font-size: 1.2rem;
+    padding: 0.9rem 2rem;
+  }
+}
+
 /* searchbar icon in the nav */
 .nav-searchbar {
   display: inline-block;
