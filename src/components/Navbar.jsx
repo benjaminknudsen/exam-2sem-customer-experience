@@ -3,11 +3,11 @@ import { NavLink } from "react-router";
 export default function Navbar() {
   return (
     <nav>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/about">About</NavLink>
-      <NavLink to="/services">Services</NavLink>
+      <NavLink to="/">LOGO</NavLink>
+      <NavLink to="/products">Shop</NavLink>
+      <NavLink to="/about">New arrivals</NavLink>
+      <NavLink to="/services">Outlet</NavLink>
       <NavLink to="/contact">Contact</NavLink>
-      <NavLink to="/products">Products</NavLink>
     </nav>
   );
 }

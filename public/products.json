@@ -41,7 +41,7 @@
     "price": 249,
     "description": "Simple and heavyweight box-fit T-shirt. Made from heavy cotton with a loose fit and drop shoulders. Works well on its own or as a base layer for layering.",
     "category": "T-Shirts",
-    "image": "https://everlastnordic.dk/cdn/shop/files/EVERLAST_HEAVY_BOX_FIT_SS_TEE-T-shirt-EV10061-Black-1.png?v=1741010586",
+    "image": "https://everlastnordic.dk/cdn/shop/files/EVERLAST_WASHED_BOX_FIT_SS_TEE-T-shirt-EV10059-Black.jpg?v=1741772609",
     "inStock": true
   },
   {
@@ -86,7 +86,7 @@
     "price": 399,
     "description": "Urban and raw zip hoodie with an adjustable hood and front pocket. Made from soft cotton, it features a bold logo on the back and a subtle logo on the front for an authentic streetwear look. Designed in a loose fit for comfort and a relaxed, modern style.",
     "category": "Hoodies and Sweatshirts",
-    "image": "https://everlastnordic.dk/cdn/shop/files/EVERLAST_WASHED_OVERSIZED_SWEAT_CARDIGAN-Hoodie-EV20029-Black-1.png?v=1765534875",
+    "image": "https://everlastnordic.dk/cdn/shop/files/EVERLAST_WASHED_OVERSIZED_SWEAT_CARDIGAN-Hoodie-EV20029-Black-1.jpg?v=1765534875",
     "inStock": false
   },
   {
@@ -127,12 +127,12 @@
     "id": 12,
     "title": "Heritage Polo LS",
     "brand": "Everlast",
-    "color": "Black & White",
+    "color": "Black",
     "beforeprice": 499,
     "price": 399,
     "description": "Sporty rugby-inspired long sleeve in 100% cotton with a retro street look. Features wide horizontal stripes and a classic collar. Timeless and easy to style.",
     "category": "Shirts & Polos",
-    "image": "https://everlastnordic.dk/cdn/shop/files/HERITAGE_POLO_LS-T-shirt-EV10067-019_Off_White.png?v=1770711977",
+    "image": "https://everlastnordic.dk/cdn/shop/files/Retro_Stripe_Zip_Polo-Knit-EV20040-Brown.jpg?crop=center&height=1275&v=1765462541&width=850",
     "inStock": true
   },
   {
@@ -177,7 +177,7 @@
     "price": 299,
     "description": "Relaxed sweatpants with straight legs and a baggy fit. Made from a soft and heavyweight sweat fabric that feels comfortable all day. The loose fit and clean design make them easy to style – featuring an elastic waistband and side pockets for functional comfort.",
     "category": "Pants",
-    "image": "https://everlastnordic.dk/cdn/shop/files/EVERLAST_STRAIGHT_BAGGY_FIT_SWEAT_PANTS-Pants-EV30051-Black-1.png?v=1765533270",
+    "image": "https://everlastnordic.dk/cdn/shop/files/EVERLAST_STRAIGHT_BAGGY_FIT_SWEAT_PANTS-Pants-EV30051-Black-2_f3a97bbf-bd7d-4885-8aca-fde63749e37d.jpg?v=1765533273",
     "inStock": false
   },
   {
@@ -268,7 +268,7 @@
     "price": 799,
     "description": "Sporty and functional lightweight jacket with a clean, urban look. Designed for movement with a hood, full-zip closure, and a technical aesthetic that works both on the street and for training.",
     "category": "Outerwear",
-    "image": "https://everlastnordic.dk/cdn/shop/files/PHASE_JACKET-Jacket-EV50010-ARMY-2.png?v=1770718270",
+    "image": "https://everlastnordic.dk/cdn/shop/files/PHASE_JACKET-Jacket-EV50010-ARMY.jpg?v=1770718270",
     "inStock": true
   },
   {
@@ -313,7 +313,7 @@
     "price": 99,
     "description": "Classic black cap with embroidered Everlast logo on the front. Features a breathable mesh back and adjustable fit for everyday comfort.",
     "category": "Accessories",
-    "image": "https://everlastnordic.dk/cdn/shop/files/EVERLAST_ICONIC_LOGO_CAP-Cap-EV90006-Black.png?v=1759234150",
+    "image": "https://cdn.media.amplience.net/i/frasersdev/40351903_o?fmt=auto&upscale=false&w=1534&h=1534&sm=scaleFit&$h-ttl$",
     "inStock": true
   }
 ]
