@@ -46,6 +46,18 @@ nav a.active {
   color: #ffffff;
 }
 
+/* searchbar icon in the nav */
+.nav-searchbar {
+  display: inline-block;
+  height: 1.5rem;
+  vertical-align: middle;
+}
+
+/* push the search link to the right edge of the bar */
+.search-link {
+  margin-left: auto;
+}
+
 /* Header */
 header {
   background-color: transparent;
