@@ -2,21 +2,23 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #e0e0e0;
-  background-color: #34495e;
+  color: #141414;
+  background-color: #f4f2ec;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  color: #141414;
+  background-color: #f4f2ec;
 }
 
 /* Navigation */
 nav {
-  background-color: #2c3e50;
+  background-color: #c7f21f;
   padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: center;
   gap: 0.5rem;
@@ -26,27 +28,28 @@ nav {
 }
 
 nav a {
-  color: rgba(255, 255, 255, 0.7);
+  color: #111111;
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+  font-weight: 600;
 }
 
 nav a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  background-color: rgba(0, 0, 0, 0.08);
+  color: #111111;
 }
 
 nav a.active {
-  background-color: #4a50c7;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
 }
 
 /* Header */
 header {
-  background-color: #2c3e50;
-  color: white;
+  background-color: transparent;
+  color: #111111;
   padding: 2rem 1rem;
   text-align: center;
 }
@@ -87,7 +90,7 @@ main h2 {
 
 main h3 {
   margin-top: 1.5rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.65);
 }
 
 /* 404 */
@@ -107,22 +110,22 @@ main h3 {
 .not-found-link {
   color: #ffffff;
   text-decoration: none;
-  background-color: #4a50c7;
+  background-color: #1f2937;
   padding: 0.6rem 1.5rem;
   border-radius: 6px;
   transition: background-color 0.3s ease;
 }
 
 .not-found-link:hover {
-  background-color: #5a60d7;
+  background-color: #111827;
 }
 
 footer {
   margin-top: 2rem;
   padding: 1rem;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid rgba(0, 0, 0, 0.18);
+  color: rgba(0, 0, 0, 0.72);
 }
 
 .services-grid {
@@ -134,8 +137,8 @@ footer {
 .service-card {
   padding: 1.25rem;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .about-container {
@@ -153,7 +156,7 @@ footer {
   text-align: center;
   padding: 1rem;
   border-radius: 8px;
-  background: #4a50c7;
+  background: #1f2937;
   color: #fff;
 }
 
@@ -165,8 +168,8 @@ footer {
   margin-top: 1rem;
   padding: 1.25rem;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  background: #ffffff;
 }
 
 .contact-button {
@@ -176,7 +179,7 @@ footer {
   border-radius: 6px;
   text-decoration: none;
   color: #fff;
-  background: #4a50c7;
+  background: #1f2937;
 }
 
 .products-grid {
@@ -186,15 +189,82 @@ footer {
 }
 
 .product-card {
-  padding: 1rem;
+  overflow: hidden;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .product-image {
   width: 100%;
-  height: 200px;
+  height: 320px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 0;
+  margin: 0;
+}
+
+.product-info {
+  padding: 0.75rem 0.85rem 0.95rem;
+}
+
+.product-brand {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #3b3b3b;
+}
+
+.product-title {
+  margin: 0.2rem 0 0.75rem;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #111111;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.product-color {
+  margin: 0;
+  font-size: 1rem;
+  color: #4b4b4b;
+}
+
+.product-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+}
+
+.product-price {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.before-price {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.55);
+  text-decoration: line-through;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .product-image {
+    height: 260px;
+  }
+
+  .product-title {
+    font-size: 1.8rem;
+  }
+
+  .product-price {
+    font-size: 1.6rem;
+  }
 }
