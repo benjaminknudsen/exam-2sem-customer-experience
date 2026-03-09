@@ -5,20 +5,20 @@ export default function ContactPage() {
         <h1>Contact</h1>
       </header>
       <main className="contact-container">
-        <p>Har du spørgsmål til projektet? Kontakt os her:</p>
+        <p>You have any questions? Write to us:</p>
 
         <section className="contact-card">
           <p>
-            <strong>Email:</strong> team@example.com
+            <strong>Email:</strong> bluntcontact.gmail.com
           </p>
           <p>
             <strong>Telefon:</strong> +45 12 34 56 78
           </p>
           <p>
-            <strong>Åbningstid:</strong> Man-Fre 09:00-16:00
+            <strong>Åbningstid:</strong> Mon-Sun 09:00-16:00
           </p>
-          <a className="contact-button" href="mailto:team@example.com">
-            Skriv til os
+          <a className="contact-button" href="mailto:bluntcontact@gmail.com">
+            Write to us
           </a>
         </section>
       </main>
