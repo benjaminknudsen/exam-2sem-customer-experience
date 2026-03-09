@@ -26,9 +26,17 @@ nav {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 0rem;
+  align-items: center;
 }
 
 nav a {
@@ -77,7 +85,33 @@ nav a.active {
   margin-left: auto;
 }
 
-/* Header */
+/* profile icon in the nav */
+.nav-profile {
+  display: inline-block;
+  height: 1.5rem;
+  vertical-align: middle;
+}
+
+/* heart icon for favorites */
+.nav-heart {
+  display: inline-block;
+  height: 1.5rem;
+  vertical-align: middle;
+}
+
+/* basket icon */
+.nav-basket {
+  display: inline-block;
+  height: 1.5rem;
+  vertical-align: middle;
+}
+
+/* denmark flag icon */
+.nav-flag {
+  display: inline-block;
+  height: 1.5rem;
+  vertical-align: middle;
+}
 header {
   background-color: transparent;
   color: #111111;
