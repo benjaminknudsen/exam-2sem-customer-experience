@@ -42,8 +42,10 @@ nav a:hover {
 }
 
 nav a.active {
-  background-color: rgba(0, 0, 0, 0.85);
-  color: #ffffff;
+  background-color: transparent;
+  color: #111111;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 /* Header */
