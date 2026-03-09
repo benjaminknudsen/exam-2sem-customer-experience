@@ -270,7 +270,9 @@ footer {
 }
 
 .nav-logo {
-  height: 28px;
-  width: auto;
+  width: 60px;
+  height: 28px;      /* din "frame"-størrelse */
+  object-fit: cover; /* fylder rammen og beskærer */
+  object-position: center;
   display: block;
 }
