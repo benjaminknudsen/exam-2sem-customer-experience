@@ -22,13 +22,19 @@ export default function ProductsPage() {
         <section className="products-grid">
           {products.map((product) => (
             <article key={product.id} className="product-card">
-              <h3>{product.name}</h3>
+
+              <img src={product.image} alt={product.title} className="product-image" />
+              <h2>{product.brand}</h2>
+              <h3>{product.title}</h3>
               <p>{product.description}</p>
               <p>
-                <strong>Kategori:</strong> {product.category}
+                <strong>Categori:</strong> {product.category}
               </p>
               <p>
-                <strong>Pris:</strong> {product.price} DKK
+                <strong>Color:</strong> {product.color}
+              </p>
+              <p>
+                <strong>Price:</strong> {product.price} DKK
               </p>
             </article>
           ))}
