@@ -193,6 +193,175 @@ nav a.active {
   background: #e30031;
 }
 
+.home-about-section {
+  display: grid;
+  grid-template-columns: minmax(260px, 460px) minmax(280px, 1fr);
+  gap: 3rem;
+  align-items: center;
+  background: #d9d9d9;
+  margin-top: 4rem;
+  padding: 4rem clamp(1.25rem, 5vw, 6rem);
+}
+
+.home-about-image {
+  width: 100%;
+  aspect-ratio: 1 / 1.15;
+  object-fit: cover;
+  border-radius: 3rem;
+  margin: 0;
+}
+
+.home-about-content {
+  max-width: 900px;
+}
+
+.home-about-kicker {
+  margin: 0;
+  color: #f50135;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.home-about-title {
+  margin: 0.9rem 0 1.35rem;
+  font-size: clamp(2rem, 3.5vw, 4rem);
+  font-style: italic;
+  line-height: 1.05;
+}
+
+.home-about-text {
+  margin: 0;
+  max-width: 55ch;
+  font-size: clamp(1rem, 1.5vw, 1.6rem);
+  line-height: 1.55;
+}
+
+.home-about-link {
+  margin-top: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #111111;
+  text-decoration: none;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.home-about-link span {
+  color: #f50135;
+}
+
+.home-about-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.home-collections {
+  background: #d9d9d9;
+  margin-top: 4rem;
+  padding: 1rem clamp(1.25rem, 5vw, 6rem) 4.5rem;
+}
+
+.home-collections-kicker {
+  margin: 0;
+  text-align: center;
+  color: #f50135;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.home-collections-title {
+  margin: 0.35rem 0 2.2rem;
+  text-align: center;
+  font-size: clamp(2rem, 3.8vw, 4.1rem);
+  line-height: 1.05;
+}
+
+.home-collections-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8rem;
+}
+
+.collection-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2.2rem;
+  min-height: clamp(360px, 38vw, 520px);
+}
+
+.collection-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0;
+}
+
+.collection-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1.8rem 1.6rem;
+}
+
+.collection-card-overlay > div {
+  margin-top: 42%;
+  max-width: 80%;
+}
+
+.collection-card-overlay.dark {
+  color: #f3f3f3;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.2));
+}
+
+.collection-card-overlay.light {
+  color: #111111;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06));
+}
+
+.collection-card-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 2vw, 2.35rem);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.collection-card-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: clamp(1.2rem, 1.6vw, 1.8rem);
+}
+
+.collection-card-overlay.light-text .collection-card-title,
+.collection-card-overlay.light-text .collection-card-subtitle {
+  color: #ffffff;
+}
+
+.collection-card-link {
+  align-self: flex-start;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  font-size: 1.95rem;
+  font-weight: 700;
+  color: #d7ff00;
+}
+
+.collection-card-link span {
+  color: #f50135;
+}
+
+.collection-card-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 @media (max-width: 900px) {
   .home-cta-button {
     left: 50%;
@@ -207,6 +376,62 @@ nav a.active {
 
   .landing-popup-title {
     font-size: 1.75rem;
+  }
+
+  .home-about-section {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    margin-top: 2rem;
+    padding: 2rem 1rem 2.4rem;
+  }
+
+  .home-about-image {
+    max-width: 520px;
+    margin: 0 auto;
+    border-radius: 1.8rem;
+  }
+
+  .home-about-kicker {
+    font-size: 1rem;
+  }
+
+  .home-about-title {
+    font-size: 2.2rem;
+  }
+
+  .home-about-text {
+    font-size: 1rem;
+  }
+
+  .home-about-link {
+    font-size: 1.25rem;
+  }
+
+  .home-collections {
+    margin-top: 2rem;
+    padding: 0.2rem 1rem 2.4rem;
+  }
+
+  .home-collections-kicker {
+    font-size: 1rem;
+  }
+
+  .home-collections-title {
+    margin-bottom: 1.4rem;
+    font-size: 2.1rem;
+  }
+
+  .home-collections-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .collection-card {
+    min-height: 380px;
+  }
+
+  .collection-card-link {
+    font-size: 1.35rem;
   }
 }
 
@@ -471,9 +696,79 @@ main h3 {
 
 .about-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 0.75rem;
+}
+
+/* detail page layout */
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.product-detail .product-image {
+  width: 100%;
+  border-radius: 8px;
+}
+.product-detail .product-info {
+  max-width: 600px;
+}
+.product-description {
   margin-top: 1rem;
+  line-height: 1.5;
+}
+
+/* detail page specific tweaks */
+.product-category {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+.product-title-detail {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 2rem;
+}
+.product-options {
+  margin-top: 1.5rem;
+}
+.option-group {
+  margin-bottom: 1rem;
+}
+.color-circle {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+}
+.sizes .size-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+.size-btn {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #333;
+  background: #fff;
+  cursor: pointer;
+}
+.add-to-bag {
+  display: block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.2rem;
+  background: #111;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* remove underline from product cards */
+.product-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .stat {
@@ -683,7 +978,8 @@ main h3 {
 
 .product-image {
   width: 100%;
-  height: 320px;
+  /* make card images square rather than a fixed tall rectangle */
+  aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 0;
   margin: 0;
@@ -746,7 +1042,7 @@ main h3 {
   }
 
   .product-image {
-    height: 260px;
+    aspect-ratio: 1/1;
   }
 
   .product-title {
