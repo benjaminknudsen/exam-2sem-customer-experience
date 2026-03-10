@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 export default function ProductDetailPage({ addToCart }) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  // local favourite state for this detail view
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     async function load() {
@@ -70,14 +72,29 @@ export default function ProductDetailPage({ addToCart }) {
                 </div>
               </div>
             </div>
-            <button
-              type="button"
-              className="add-to-bag"
-              onClick={() => addToCart(product)}
-              disabled={!product.inStock}
-            >
-              {product.inStock ? "Add to Bag" : "Out of stock"}
-            </button>
+            <div className="product-actions">
+              <button
+                type="button"
+                className="add-to-bag"
+                onClick={() => addToCart(product)}
+                disabled={!product.inStock}
+              >
+                {product.inStock ? "Add to Bag" : "Out of stock"}
+              </button>
+              <button
+                type="button"
+                className="product-heart-btn"
+                onClick={() => setIsFavorite((f) => !f)}
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}${
+                    isFavorite ? "heart-add.png" : "heart.png"
+                  }`}
+                  alt="Favorite"
+                  className="product-heart"
+                />
+              </button>
+            </div>
           </div>
         </section>
       </main>
