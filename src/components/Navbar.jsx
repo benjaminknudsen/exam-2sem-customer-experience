@@ -6,7 +6,7 @@ export default function Navbar({ cartCount }) {
   const profileSrc = `${import.meta.env.BASE_URL}profile-circle.png`;
   const heartSrc = `${import.meta.env.BASE_URL}heart.png`;
   const basketSrc = `${import.meta.env.BASE_URL}bag-2.png`;
-  const flagSrc = `${import.meta.env.BASE_URL}twemoji_flag-denmark.png`;
+  const flagSrc = `${import.meta.env.BASE_URL}engelskflag.svg`;
 
   return (
     <nav>
@@ -36,7 +36,7 @@ export default function Navbar({ cartCount }) {
           ) : null}
         </NavLink>
         <NavLink to="/language">
-          <img src={flagSrc} alt="Danmark flag" className="nav-flag" />
+          <img src={flagSrc} alt="English flag" className="nav-flag" />
         </NavLink>
       </div>
     </nav>
