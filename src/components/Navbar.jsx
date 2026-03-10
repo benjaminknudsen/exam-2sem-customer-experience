@@ -15,8 +15,8 @@ export default function Navbar() {
           <img src={logoSrc} alt="Blunt" className="nav-logo" />
         </NavLink>
         <NavLink to="/products">Shop</NavLink>
-        <NavLink to="/about">New arrivals</NavLink>
-        <NavLink to="/services">Outlet</NavLink>
+        <NavLink to="/new-arrivals">New arrivals</NavLink>
+        <NavLink to="/outlet">Outlet</NavLink>
       </div>
       <div className="nav-right">
         <NavLink to="/search">

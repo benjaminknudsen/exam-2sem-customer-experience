@@ -118,9 +118,6 @@ export default function ProductsPage() {
 
   return (
     <>
-      <header>
-        <h1>Products</h1>
-      </header>
       <main className="products-main">
         <div className="products-layout">
           <aside className="products-sidebar" aria-label="Product filters">
