@@ -86,11 +86,11 @@ export default function ProductDetailPage({ addToCart }) {
                 className="product-heart-btn"
                 onClick={() => setIsFavorite((f) => !f)}
               >
-                  <img
-                    src={`${import.meta.env.BASE_URL}${
-                      isFavorite ? "heart-add.png" : "heart.png"
-                    }`}
-                    alt="Favorite"
+                <img
+                  src={`${import.meta.env.BASE_URL}${
+                    isFavorite ? "heart-add.png" : "heart.png"
+                  }`}
+                  alt="Favorite"
                   className="product-heart"
                 />
               </button>
