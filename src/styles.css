@@ -1362,7 +1362,7 @@ main h3 {
   margin: 0;
   color: rgba(0, 0, 0, 0.55);
   text-decoration: line-through;
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 
 @media (max-width: 768px) {
