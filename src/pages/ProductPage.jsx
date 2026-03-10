@@ -126,6 +126,7 @@ export default function ProductsPage({ addToCart }) {
     Grey: "#8a8a8a",
     White: "#eeeeee",
     Blue: "#2c5de0",
+    Green: "#2f8f2f",
     Red: "#e10600",
     Brown: "#7b5437",
   };
