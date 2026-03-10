@@ -71,10 +71,16 @@ export default function BasketPage({
 
         <aside className="basket-summary">
           <h2>Order summary</h2>
-          <p className="basket-total">Total: {cartTotal} kr.</p>
+          <p className="basket-total">
+            <span>Total: </span>
+            <span className="basket-total-amount">{cartTotal} kr.</span>
+          </p>
           <button type="button" className="basket-clear" onClick={clearCart}>
             Clear basket
           </button>
+          <NavLink to="/checkout" className="basket-checkout">
+            Go to checkout
+          </NavLink>
         </aside>
       </main>
     </>

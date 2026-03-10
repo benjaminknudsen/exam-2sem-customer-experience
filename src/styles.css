@@ -1390,10 +1390,10 @@ main h3 {
   display: grid;
   grid-template-columns: 96px 1fr auto;
   gap: 0.8rem;
-  align-items: center;
+  align-items: stretch;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
   padding: 0.7rem;
 }
 
@@ -1412,32 +1412,65 @@ main h3 {
   margin: 0;
 }
 
+.basket-brand {
+  font-size: 0.82rem;
+  color: #3b3b3b;
+}
+
 .basket-title {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  line-height: 1.05;
+}
+
+.basket-price {
+  margin-top: 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.basket-actions {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 100%;
 }
 
 .basket-quantity {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.2rem;
+  background: #d0d0d0;
+  border-radius: 999px;
+  padding: 0.15rem;
 }
 
 .basket-quantity button {
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  background: #ffffff;
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
+  border: 0;
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  font-size: 1.15rem;
+  font-weight: 700;
   cursor: pointer;
+}
+
+.basket-quantity span {
+  min-width: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .basket-remove,
 .basket-clear,
+.basket-checkout,
 .basket-link {
   margin-top: 0.55rem;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   background: #ffffff;
-  border-radius: 6px;
+  border-radius: 999px;
   padding: 0.45rem 0.7rem;
   cursor: pointer;
   color: #111111;
@@ -1445,12 +1478,70 @@ main h3 {
   display: inline-block;
 }
 
+.basket-remove {
+  margin-top: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #f50135;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.basket-clear {
+  width: 100%;
+  margin-top: 0.8rem;
+  background: transparent;
+  color: #111111;
+  border: 1px solid #111111;
+  font-size: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  box-sizing: border-box;
+}
+
+.basket-clear:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.basket-checkout {
+  width: 100%;
+  margin-top: 1.7rem;
+  background: #000000;
+  color: #ffffff;
+  border: 0;
+  font-size: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+}
+
+.basket-checkout:hover {
+  background: #1c1c1c;
+}
+
 .basket-summary,
 .basket-empty {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 10px;
+  border-radius: 14px;
   padding: 1rem;
+}
+
+.basket-summary h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.basket-total {
+  margin-top: 0.5rem;
+  font-size: 1.55rem;
+  font-weight: 400;
+}
+
+.basket-total-amount {
+  font-weight: 700;
 }
 
 @media (max-width: 900px) {
@@ -1464,6 +1555,10 @@ main h3 {
 
   .basket-actions {
     grid-column: 1 / -1;
+    min-height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
