@@ -41,7 +41,7 @@ export default function ProductDetailPage({ addToCart }) {
             {/* price directly under the title */}
             <div className="product-pricing detail-pricing">
               {product.beforeprice ? (
-                <p className="before-price">{product.beforeprice} kr.</p>
+                <p className="before-price-detail">{product.beforeprice} kr.</p>
               ) : null}
               <p className="product-price">{product.price} kr.</p>
             </div>

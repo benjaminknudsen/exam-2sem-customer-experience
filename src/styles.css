@@ -904,9 +904,11 @@ main h3 {
   font-size: 1.6rem;
   font-weight: 800;
 }
-.product-detail .before-price {
+.before-price-detail {
+  margin: 0;
   color: rgba(0, 0, 0, 0.55);
   margin-right: 0.5rem;
+  text-decoration: line-through;
 }
 .product-options {
   margin-top: 2rem; /* a bit more space between description and options */
@@ -1653,11 +1655,11 @@ main h3 {
   color: #111111;
 }
 
-.before-price {
+.before-price-card {
   margin: 0;
   color: rgba(0, 0, 0, 0.55);
   text-decoration: line-through;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
 @media (max-width: 768px) {

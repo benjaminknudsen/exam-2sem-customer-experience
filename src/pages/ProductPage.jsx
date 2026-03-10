@@ -313,7 +313,7 @@ export default function ProductsPage({ addToCart }) {
                         <p className="product-color">{product.color}</p>
                         <div className="product-pricing">
                           {product.beforeprice ? (
-                            <p className="before-price">
+                            <p className="before-price-card">
                               {product.beforeprice} kr.
                             </p>
                           ) : null}
