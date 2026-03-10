@@ -4,6 +4,7 @@ import { NavLink } from "react-router";
 export default function HomePage() {
   const [isPopupOpen, setIsPopupOpen] = useState(true);
   const landingBg = `${import.meta.env.BASE_URL}landingpagebackground.png`;
+  const popupImage = `${import.meta.env.BASE_URL}popup.png`;
   const designImage = `${import.meta.env.BASE_URL}blunt.design.png`;
   const afterHoursImage = `${import.meta.env.BASE_URL}after.hours.png`;
   const essentialImage = `${import.meta.env.BASE_URL}essential.png`;
@@ -56,22 +57,34 @@ export default function HomePage() {
             >
               x
             </button>
-            <p className="landing-popup-eyebrow">Enter your email to unlock</p>
-            <h2 className="landing-popup-title">15% off your first order</h2>
-            <p className="landing-popup-text">
-              Plus, get insider access to promotions, launches, events, and more
-            </p>
-            <form className="landing-popup-form">
-              <input
-                type="email"
-                className="landing-popup-input"
-                placeholder="Enter your email address"
-                aria-label="Email address"
-              />
-              <button type="submit" className="landing-popup-submit">
-                Unlock Access
-              </button>
-            </form>
+
+            <img
+              src={popupImage}
+              alt="Newsletter popup visual"
+              className="landing-popup-image"
+            />
+
+            <div className="landing-popup-content">
+              <p className="landing-popup-eyebrow">
+                Enter your email to unlock
+              </p>
+              <h2 className="landing-popup-title">15% off your first order</h2>
+              <p className="landing-popup-text">
+                Plus, get insider access to promotions, launches, events, and
+                more
+              </p>
+              <form className="landing-popup-form">
+                <input
+                  type="email"
+                  className="landing-popup-input"
+                  placeholder="Enter your email address"
+                  aria-label="Email address"
+                />
+                <button type="submit" className="landing-popup-submit">
+                  Unlock Access
+                </button>
+              </form>
+            </div>
           </section>
         </div>
       )}
