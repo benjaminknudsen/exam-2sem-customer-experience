@@ -835,7 +835,7 @@ main h3 {
 }
 .product-description {
   margin-top: 0.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   line-height: 1.5;
 }
 
@@ -844,7 +844,7 @@ main h3 {
   font-size: 0.9rem;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.6);
-  margin: 0 0 1.75rem 0; /* add space below category for detail pages */
+  margin: 0 0 1rem 0; /* add space below category for detail pages */
 }
 .product-title-detail {
   margin: 0.25rem 0 0.5rem;
@@ -852,7 +852,7 @@ main h3 {
   font-weight: 400;
 }
 .detail-pricing {
-  margin: 0.4rem 0 1.2rem;
+  margin: 0.4rem 0 3.2rem;
 }
 
 /* make price larger on the detail page */
@@ -1444,8 +1444,8 @@ main h3 {
 }
 
 .product-brand {
-  margin: 0 0 0.4rem 0;
-  font-size: 1.5rem; /* increased for better readability on detail pages */
+  margin: 0 0 0.5rem 0;
+  font-size: 1.6rem; /* increased for better readability on detail pages */
   font-weight: 400;
   color: #3b3b3b;
 }
