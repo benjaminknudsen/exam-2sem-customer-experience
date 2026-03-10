@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { NavLink } from "react-router";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -247,26 +248,31 @@ export default function ProductsPage() {
             <section className="products-grid">
               {filteredProducts.map((product) => (
                 <article key={product.id} className="product-card">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="product-image"
-                  />
-                  <div className="product-info">
-                    <p className="product-brand">{product.brand}</p>
-                    <h2 className="product-title">{product.title}</h2>
-                    <div className="product-meta">
-                      <p className="product-color">{product.color}</p>
-                      <div className="product-pricing">
-                        {product.beforeprice ? (
-                          <p className="before-price">
-                            {product.beforeprice} kr.
-                          </p>
-                        ) : null}
-                        <p className="product-price">{product.price} kr.</p>
+                  <NavLink
+                    to={`/products/${product.id}`}
+                    className="product-link"
+                  >
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="product-image"
+                    />
+                    <div className="product-info">
+                      <p className="product-brand">{product.brand}</p>
+                      <h2 className="product-title">{product.title}</h2>
+                      <div className="product-meta">
+                        <p className="product-color">{product.color}</p>
+                        <div className="product-pricing">
+                          {product.beforeprice ? (
+                            <p className="before-price">
+                              {product.beforeprice} kr.
+                            </p>
+                          ) : null}
+                          <p className="product-price">{product.price} kr.</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </NavLink>
                 </article>
               ))}
 
