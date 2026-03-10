@@ -26,11 +26,21 @@ export default function HomePage() {
       textTone: "light-text",
     },
   ];
+  const socialProof = [
+    { value: "100%", label: "Authentic", tone: "red" },
+    { value: "10k+", label: "Community members", tone: "blue" },
+    { value: "4.8*", label: "Trustpilot", tone: "orange" },
+    { value: "7+", label: "Top brands", tone: "purple" },
+    { value: "90%", label: "Sell out rate on drops", tone: "green" },
+  ];
 
   return (
     <main className="home-main">
       {isPopupOpen && (
-        <div className="landing-popup-overlay" onClick={() => setIsPopupOpen(false)}>
+        <div
+          className="landing-popup-overlay"
+          onClick={() => setIsPopupOpen(false)}
+        >
           <section
             className="landing-popup"
             role="dialog"
@@ -78,7 +88,11 @@ export default function HomePage() {
       </div>
 
       <section className="home-about-section" aria-label="About Blunt">
-        <img src={designImage} alt="Blunt design" className="home-about-image" />
+        <img
+          src={designImage}
+          alt="Blunt design"
+          className="home-about-image"
+        />
 
         <div className="home-about-content">
           <p className="home-about-kicker">About us</p>
@@ -122,6 +136,20 @@ export default function HomePage() {
                   Learn More <span aria-hidden="true">{">"}</span>
                 </NavLink>
               </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-proof" aria-label="Why choose us">
+        <p className="home-proof-kicker">Choose Us</p>
+        <h2 className="home-proof-title">Why Choose Us ?</h2>
+
+        <div className="home-proof-grid">
+          {socialProof.map((item) => (
+            <article key={item.label} className="proof-card">
+              <p className={`proof-value proof-${item.tone}`}>{item.value}</p>
+              <p className="proof-label">{item.label}</p>
             </article>
           ))}
         </div>

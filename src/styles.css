@@ -367,6 +367,80 @@ nav a.active {
   text-underline-offset: 4px;
 }
 
+.home-proof {
+  background: #d9d9d9;
+  margin-top: 2.5rem;
+  padding: 1rem clamp(1.25rem, 5vw, 6rem) 4rem;
+}
+
+.home-proof-kicker {
+  margin: 0;
+  text-align: center;
+  color: #f50135;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.home-proof-title {
+  margin: 0.35rem 0 2rem;
+  text-align: center;
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  line-height: 1.08;
+}
+
+.home-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.7rem;
+}
+
+.proof-card {
+  min-height: 145px;
+  border-radius: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+  padding: 0.8rem;
+}
+
+.proof-value {
+  margin: 0;
+  font-size: clamp(1.65rem, 2.5vw, 2.3rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.proof-label {
+  margin: 0.55rem 0 0;
+  max-width: 12ch;
+  font-size: clamp(0.9rem, 1vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.proof-red {
+  color: #e60d3a;
+}
+
+.proof-blue {
+  color: #3259ea;
+}
+
+.proof-orange {
+  color: #f2a51a;
+}
+
+.proof-purple {
+  color: #8f24ea;
+}
+
+.proof-green {
+  color: #17ae36;
+}
+
 @media (max-width: 900px) {
   .home-cta-button {
     left: 50%;
@@ -437,6 +511,29 @@ nav a.active {
 
   .collection-card-link {
     font-size: 1.35rem;
+  }
+
+  .home-proof {
+    margin-top: 2rem;
+    padding: 0.2rem 1rem 2.2rem;
+  }
+
+  .home-proof-kicker {
+    font-size: 0.9rem;
+  }
+
+  .home-proof-title {
+    margin-bottom: 1.3rem;
+    font-size: 1.8rem;
+  }
+
+  .home-proof-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .proof-card {
+    min-height: 115px;
   }
 }
 
