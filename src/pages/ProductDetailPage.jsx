@@ -37,21 +37,22 @@ export default function ProductDetailPage({ addToCart }) {
             <p className="product-category">{product.category}</p>
             <p className="product-brand">{product.brand}</p>
             <h2 className="product-title-detail">{product.title}</h2>
-            <div className="product-meta">
-              <p className="product-color">{product.color}</p>
-              <div className="product-pricing">
-                {product.beforeprice ? (
-                  <p className="before-price">{product.beforeprice} kr.</p>
-                ) : null}
-                <p className="product-price">{product.price} kr.</p>
-              </div>
+
+            {/* price directly under the title */}
+            <div className="product-pricing detail-pricing">
+              {product.beforeprice ? (
+                <p className="before-price">{product.beforeprice} kr.</p>
+              ) : null}
+              <p className="product-price">{product.price} kr.</p>
             </div>
+
+            {/* product color text removed here; color selector remains below */}
 
             <p className="product-description">{product.description}</p>
 
             {/* simple color/size selectors (static layout) */}
             <div className="product-options">
-              <div className="option-group">
+              <div className="option-group color-group">
                 <span>Product Color</span>
                 <span
                   className="color-circle"
