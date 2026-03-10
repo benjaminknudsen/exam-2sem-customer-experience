@@ -1153,8 +1153,9 @@ main h3 {
 }
 
 .products-sidebar {
-  background: #e1e1e1;
+  background: #f0efef;
   border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
   padding: 0.7rem;
 }
 
