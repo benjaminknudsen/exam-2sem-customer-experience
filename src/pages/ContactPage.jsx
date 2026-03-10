@@ -43,6 +43,7 @@ export default function ContactPage() {
 
       <section className="contact-faq" aria-label="Frequently asked questions">
         <h2>Frequently asked questions</h2>
+        <h2>Frequently asked questions.</h2>
 
         <details>
           <summary>Can I change or cancel my order?</summary>

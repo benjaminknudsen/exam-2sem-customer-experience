@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 
-export default function ProductDetailPage() {
+export default function ProductDetailPage({ addToCart }) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -25,9 +25,6 @@ export default function ProductDetailPage() {
 
   return (
     <>
-      <header>
-        <h1>{product.title}</h1>
-      </header>
       <main>
         <section className="product-detail">
           <img
@@ -40,29 +37,30 @@ export default function ProductDetailPage() {
             <p className="product-category">{product.category}</p>
             <p className="product-brand">{product.brand}</p>
             <h2 className="product-title-detail">{product.title}</h2>
-            <div className="product-meta">
-              <p className="product-color">{product.color}</p>
-              <div className="product-pricing">
-                {product.beforeprice ? (
-                  <p className="before-price">{product.beforeprice} kr.</p>
-                ) : null}
-                <p className="product-price">{product.price} kr.</p>
-              </div>
+
+            {/* price directly under the title */}
+            <div className="product-pricing detail-pricing">
+              {product.beforeprice ? (
+                <p className="before-price">{product.beforeprice} kr.</p>
+              ) : null}
+              <p className="product-price">{product.price} kr.</p>
             </div>
+
+            {/* product color text removed here; color selector remains below */}
 
             <p className="product-description">{product.description}</p>
 
             {/* simple color/size selectors (static layout) */}
             <div className="product-options">
-              <div className="option-group">
-                <span>Color</span>
+              <div className="option-group color-group">
+                <span>Product Color</span>
                 <span
                   className="color-circle"
                   style={{ background: product.color.toLowerCase() }}
                 ></span>
               </div>
               <div className="option-group sizes">
-                <span>Size</span>
+                <span>Product Size</span>
                 <div className="size-buttons">
                   {["XS", "S", "M", "L", "XL"].map((sz) => (
                     <button key={sz} className="size-btn">
@@ -72,7 +70,14 @@ export default function ProductDetailPage() {
                 </div>
               </div>
             </div>
-            <button className="add-to-bag">Add to Bag</button>
+            <button
+              type="button"
+              className="add-to-bag"
+              onClick={() => addToCart(product)}
+              disabled={!product.inStock}
+            >
+              {product.inStock ? "Add to Bag" : "Out of stock"}
+            </button>
           </div>
         </section>
       </main>
