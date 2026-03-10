@@ -895,6 +895,7 @@ main h3 {
   font-size: 2rem;
   font-weight: 400;
 }
+
 .detail-pricing {
   margin: 0.4rem 0 3.2rem;
 }
@@ -961,9 +962,30 @@ main h3 {
   background: #fff;
   cursor: pointer;
 }
+.product-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.product-actions .product-heart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  width: auto;
+  height: auto;
+  margin-left: 0rem;
+}
+
+.product-actions .product-heart {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 .add-to-bag {
   display: block;
-  margin-top: 1.5rem;
   padding: 0.8rem 7.1rem;
   background: #111;
   color: #fff;
