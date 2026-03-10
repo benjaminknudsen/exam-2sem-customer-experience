@@ -335,7 +335,15 @@ export default function ProductsPage({ addToCart }) {
                       </div>
                       <h2 className="product-title">{product.title}</h2>
                       <div className="product-meta">
-                        <p className="product-color">{product.color}</p>
+                        <span
+                          className="product-color-dot"
+                          role="img"
+                          aria-label={`Color: ${product.color}`}
+                          style={{
+                            background:
+                              colorSwatches[product.color] || "#d7d7d7",
+                          }}
+                        />
                         <div className="product-pricing">
                           {product.beforeprice ? (
                             <p className="before-price-card">
