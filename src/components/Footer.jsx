@@ -26,7 +26,7 @@ export default function Footer() {
   ];
 
   const [openSections, setOpenSections] = useState(() =>
-    Object.fromEntries(sections.map((section) => [section.title, true]))
+    Object.fromEntries(sections.map((section) => [section.title, false])),
   );
 
   const toggleSection = (title) => {
