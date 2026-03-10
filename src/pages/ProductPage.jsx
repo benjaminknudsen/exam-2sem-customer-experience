@@ -287,6 +287,20 @@ export default function ProductsPage({ addToCart }) {
                     to={`/products/${product.id}`}
                     className="product-link"
                   >
+                    {product.discountLabel || product.lowStockLabel ? (
+                      <div className="product-card-badges">
+                        {product.discountLabel ? (
+                          <span className="product-badge-discount">
+                            {product.discountLabel}
+                          </span>
+                        ) : null}
+                        {product.lowStockLabel ? (
+                          <span className="product-badge-stock">
+                            {product.lowStockLabel}
+                          </span>
+                        ) : null}
+                      </div>
+                    ) : null}
                     <img
                       src={product.image}
                       alt={product.title}

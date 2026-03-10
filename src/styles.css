@@ -1298,6 +1298,7 @@ main h3 {
 }
 
 .product-card {
+  position: relative;
   overflow: hidden;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -1311,6 +1312,35 @@ main h3 {
 .product-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.product-card-badges {
+  position: absolute;
+  top: 0.45rem;
+  left: 0.45rem;
+  right: 0.45rem;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.product-badge-discount,
+.product-badge-stock {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 0.15rem 0.4rem;
+  line-height: 1.1;
+}
+
+.product-badge-discount {
+  background: #ad0000;
+}
+
+.product-badge-stock {
+  background: #111111;
+  margin-left: auto;
 }
 
 .product-card-add {
