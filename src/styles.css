@@ -83,6 +83,88 @@ nav a.active {
   position: relative;
 }
 
+.landing-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.landing-popup {
+  width: min(440px, 100%);
+  background: #e9e7e1;
+  color: #111111;
+  padding: 2.8rem 2.2rem 2.1rem;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.landing-popup-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.9rem;
+  border: 0;
+  background: transparent;
+  color: #444;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.landing-popup-eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.landing-popup-title {
+  margin: 0.7rem auto 0.9rem;
+  max-width: 16ch;
+  font-size: 2.1rem;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+
+.landing-popup-text {
+  margin: 0 auto 1.55rem;
+  max-width: 29ch;
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.landing-popup-form {
+  display: grid;
+  gap: 0.65rem;
+  justify-items: center;
+}
+
+.landing-popup-input {
+  width: min(275px, 100%);
+  border: 1px solid #b9b9b9;
+  background: #f8f8f8;
+  color: #111;
+  padding: 0.75rem 0.85rem;
+  font-size: 0.88rem;
+}
+
+.landing-popup-submit {
+  border: 0;
+  background: #000000;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 0.62rem 1.4rem;
+  cursor: pointer;
+}
+
+.landing-popup-submit:hover {
+  background: #1f1f1f;
+}
+
 .home-hero-image {
   width: 100%;
   height: auto;
@@ -117,6 +199,14 @@ nav a.active {
     top: 44%;
     font-size: 1.2rem;
     padding: 0.9rem 2rem;
+  }
+
+  .landing-popup {
+    padding: 2.3rem 1.2rem 1.5rem;
+  }
+
+  .landing-popup-title {
+    font-size: 1.75rem;
   }
 }
 
@@ -232,12 +322,134 @@ main h3 {
   background-color: #111827;
 }
 
-footer {
+.site-footer {
   margin-top: 2rem;
-  padding: 1rem;
+  background: #000000;
+  color: #f0f0f0;
+  padding: 2.5rem 5.5vw 5rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 500px;
+  width: 100%;
+  margin-bottom: 0.95rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.footer-toggle-btn {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.footer-section {
+  margin-bottom: 2.8rem;
+  max-width: 500px;
+}
+
+.footer-items {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 0.35rem;
+}
+
+.footer-items li {
+  margin-bottom: 0.95rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.footer-brand {
+  margin-top: 2.8rem;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.footer-newsletter {
+  max-width: 660px;
+  justify-self: end;
+  width: 100%;
+}
+
+.footer-heading,
+.footer-subheading {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.footer-subheading {
+  margin-top: 0.5rem;
+}
+
+.footer-form {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.footer-form input {
+  width: 100%;
+  max-width: 580px;
+  border: 0;
+  border-bottom: 1px solid #b8b8b8;
+  background: transparent;
+  color: #f3f3f3;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.35rem 0;
+}
+
+.footer-form input::placeholder {
+  color: #c8c8c8;
+}
+
+.footer-form button {
+  border: 1px solid #f2f2f2;
+  background: transparent;
+  color: #f2f2f2;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.3rem 1.1rem;
+  cursor: pointer;
+}
+
+.footer-form button:hover {
+  background: #f2f2f2;
+  color: #000000;
+}
+
+.footer-copyright {
+  margin: 2.6rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
   text-align: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.18);
-  color: rgba(0, 0, 0, 0.72);
+  color: rgba(255, 255, 255, 0.76);
 }
 
 .services-grid {
@@ -378,6 +590,48 @@ footer {
 
   .product-price {
     font-size: 1.6rem;
+  }
+
+  .site-footer {
+    padding: 2rem 1.2rem 2.8rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-newsletter {
+    justify-self: start;
+  }
+
+  .footer-row,
+  .footer-items li,
+  .footer-heading,
+  .footer-subheading {
+    font-size: 1.1rem;
+  }
+
+  .footer-section {
+    margin-bottom: 1.4rem;
+  }
+
+  .footer-brand {
+    font-size: 2rem;
+    margin-top: 1.8rem;
+  }
+
+  .footer-form {
+    gap: 0.9rem;
+  }
+
+  .footer-form input {
+    font-size: 1rem;
+  }
+
+  .footer-form button {
+    font-size: 1rem;
+    padding: 0.35rem 0.75rem;
   }
 }
 
