@@ -5,6 +5,7 @@ export default function ProductsPage({ addToCart }) {
   const [products, setProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedColors, setSelectedColors] = useState([]);
+  const [selectedSizes, setSelectedSizes] = useState([]);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [maxPrice, setMaxPrice] = useState(0);
   const [sortBy, setSortBy] = useState("featured");
@@ -43,6 +44,20 @@ export default function ProductsPage({ addToCart }) {
     [products],
   );
 
+  const sizeOptions = ["XS", "S", "M", "L", "XL", "XXL"];
+
+  function getProductSizes(product) {
+    if (product.category === "Accessories") {
+      return ["M", "L", "XL", "XXL"];
+    }
+
+    if (product.category === "Pants" || product.category === "Denim Jeans") {
+      return ["S", "M", "L", "XL", "XXL"];
+    }
+
+    return ["XS", "S", "M", "L", "XL", "XXL"];
+  }
+
   const highestPrice = useMemo(
     () =>
       products.length > 0
@@ -67,11 +82,16 @@ export default function ProductsPage({ addToCart }) {
         selectedCategories.includes(product.category);
       const colorMatch =
         selectedColors.length === 0 || selectedColors.includes(product.color);
+      const sizeMatch =
+        selectedSizes.length === 0 ||
+        selectedSizes.some((size) => getProductSizes(product).includes(size));
       const brandMatch =
         selectedBrands.length === 0 || selectedBrands.includes(product.brand);
       const priceMatch = maxPrice === 0 || product.price <= maxPrice;
 
-      return categoryMatch && colorMatch && brandMatch && priceMatch;
+      return (
+        categoryMatch && colorMatch && sizeMatch && brandMatch && priceMatch
+      );
     });
 
     if (sortBy === "price-asc") {
@@ -87,6 +107,7 @@ export default function ProductsPage({ addToCart }) {
     products,
     selectedCategories,
     selectedColors,
+    selectedSizes,
     selectedBrands,
     maxPrice,
     sortBy,
@@ -95,6 +116,7 @@ export default function ProductsPage({ addToCart }) {
   const hasActiveFilters =
     selectedCategories.length > 0 ||
     selectedColors.length > 0 ||
+    selectedSizes.length > 0 ||
     selectedBrands.length > 0 ||
     (maxPrice > 0 && maxPrice < highestPrice) ||
     sortBy !== "featured";
@@ -111,6 +133,7 @@ export default function ProductsPage({ addToCart }) {
   function clearFilters() {
     setSelectedCategories([]);
     setSelectedColors([]);
+    setSelectedSizes([]);
     setSelectedBrands([]);
     setSortBy("featured");
     setMaxPrice(0);
@@ -172,6 +195,20 @@ export default function ProductsPage({ addToCart }) {
 
             <details className="sidebar-group">
               <summary>SIZE</summary>
+              <div className="sidebar-options">
+                {sizeOptions.map((size) => (
+                  <label key={size} className="sidebar-option-row">
+                    <input
+                      type="checkbox"
+                      checked={selectedSizes.includes(size)}
+                      onChange={() =>
+                        toggleValue(size, selectedSizes, setSelectedSizes)
+                      }
+                    />
+                    <span>{size}</span>
+                  </label>
+                ))}
+              </div>
             </details>
 
             <details className="sidebar-group">
@@ -193,7 +230,7 @@ export default function ProductsPage({ addToCart }) {
             </details>
 
             <details open className="sidebar-group">
-              <summary>PRIZE</summary>
+              <summary>PRICE</summary>
               <div className="sidebar-price">
                 <input
                   type="range"
