@@ -25,9 +25,6 @@ export default function ProductDetailPage() {
 
   return (
     <>
-      <header>
-        <h1>{product.title}</h1>
-      </header>
       <main>
         <section className="product-detail">
           <img
@@ -55,14 +52,14 @@ export default function ProductDetailPage() {
             {/* simple color/size selectors (static layout) */}
             <div className="product-options">
               <div className="option-group">
-                <span>Color</span>
+                <span>Product Color</span>
                 <span
                   className="color-circle"
                   style={{ background: product.color.toLowerCase() }}
                 ></span>
               </div>
               <div className="option-group sizes">
-                <span>Size</span>
+                <span>Product Size</span>
                 <div className="size-buttons">
                   {["XS", "S", "M", "L", "XL"].map((sz) => (
                     <button key={sz} className="size-btn">
