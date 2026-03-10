@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 
-export default function ProductDetailPage() {
+export default function ProductDetailPage({ addToCart }) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -69,7 +69,14 @@ export default function ProductDetailPage() {
                 </div>
               </div>
             </div>
-            <button className="add-to-bag">Add to Bag</button>
+            <button
+              type="button"
+              className="add-to-bag"
+              onClick={() => addToCart(product)}
+              disabled={!product.inStock}
+            >
+              {product.inStock ? "Add to Bag" : "Out of stock"}
+            </button>
           </div>
         </section>
       </main>

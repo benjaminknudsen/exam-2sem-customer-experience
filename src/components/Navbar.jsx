@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 
-export default function Navbar() {
+export default function Navbar({ cartCount }) {
   const logoSrc = `${import.meta.env.BASE_URL}blunt.logo.png`;
   const searchSrc = `${import.meta.env.BASE_URL}searchbar.png`;
   const profileSrc = `${import.meta.env.BASE_URL}profile-circle.png`;
@@ -29,8 +29,11 @@ export default function Navbar() {
         <NavLink to="/favorites">
           <img src={heartSrc} alt="Favoritter" className="nav-heart" />
         </NavLink>
-        <NavLink to="/basket">
+        <NavLink to="/basket" className="basket-link-nav">
           <img src={basketSrc} alt="Kurv" className="nav-basket" />
+          {cartCount > 0 ? (
+            <span className="basket-count">{cartCount}</span>
+          ) : null}
         </NavLink>
         <NavLink to="/language">
           <img src={flagSrc} alt="Danmark flag" className="nav-flag" />
