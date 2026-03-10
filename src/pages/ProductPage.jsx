@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router";
+import { useEffect, useMemo, useState } from "react";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -8,11 +7,6 @@ export default function ProductsPage() {
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [maxPrice, setMaxPrice] = useState(0);
   const [sortBy, setSortBy] = useState("featured");
-  const [categories, setCategories] = useState([]);
-  const [colors, setColors] = useState([]);
-  const [brands, setBrands] = useState([]);
-  const [highestPrice, setHighestPrice] = useState(0);
-  const [filteredProducts, setFilteredProducts] = useState([]);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -33,28 +27,28 @@ export default function ProductsPage() {
     loadProducts();
   }, []);
 
-  useEffect(() => {
-    const nextCategories = [
-      ...new Set(products.map((product) => product.category)),
-    ];
-    const nextColors = [...new Set(products.map((product) => product.color))];
-    const nextBrands = [...new Set(products.map((product) => product.brand))];
-    const nextHighestPrice =
+  const categories = useMemo(
+    () => [...new Set(products.map((product) => product.category))],
+    [products],
+  );
+
+  const colors = useMemo(
+    () => [...new Set(products.map((product) => product.color))],
+    [products],
+  );
+
+  const brands = useMemo(
+    () => [...new Set(products.map((product) => product.brand))],
+    [products],
+  );
+
+  const highestPrice = useMemo(
+    () =>
       products.length > 0
         ? Math.max(...products.map((product) => product.price))
-        : 0;
-
-    setCategories(nextCategories);
-    setColors(nextColors);
-    setBrands(nextBrands);
-    setHighestPrice(nextHighestPrice);
-  }, [products]);
-
-  useEffect(() => {
-    if (highestPrice > 0) {
-      setMaxPrice(highestPrice);
-    }
-  }, [highestPrice]);
+        : 0,
+    [products],
+  );
 
   function toggleValue(value, selectedValues, setSelectedValues) {
     if (selectedValues.includes(value)) {
@@ -65,7 +59,7 @@ export default function ProductsPage() {
     setSelectedValues([...selectedValues, value]);
   }
 
-  useEffect(() => {
+  const filteredProducts = useMemo(() => {
     const result = products.filter((product) => {
       const categoryMatch =
         selectedCategories.length === 0 ||
@@ -80,16 +74,14 @@ export default function ProductsPage() {
     });
 
     if (sortBy === "price-asc") {
-      setFilteredProducts([...result].sort((a, b) => a.price - b.price));
-      return;
+      return [...result].sort((a, b) => a.price - b.price);
     }
 
     if (sortBy === "price-desc") {
-      setFilteredProducts([...result].sort((a, b) => b.price - a.price));
-      return;
+      return [...result].sort((a, b) => b.price - a.price);
     }
 
-    setFilteredProducts(result);
+    return result;
   }, [
     products,
     selectedCategories,
@@ -103,7 +95,7 @@ export default function ProductsPage() {
     selectedCategories.length > 0 ||
     selectedColors.length > 0 ||
     selectedBrands.length > 0 ||
-    maxPrice < highestPrice ||
+    (maxPrice > 0 && maxPrice < highestPrice) ||
     sortBy !== "featured";
 
   const colorSwatches = {
@@ -120,7 +112,7 @@ export default function ProductsPage() {
     setSelectedColors([]);
     setSelectedBrands([]);
     setSortBy("featured");
-    setMaxPrice(highestPrice);
+    setMaxPrice(0);
   }
 
   return (
@@ -209,10 +201,10 @@ export default function ProductsPage() {
                   type="range"
                   min="0"
                   max={highestPrice}
-                  value={maxPrice}
+                  value={maxPrice === 0 ? highestPrice : maxPrice}
                   onChange={(event) => setMaxPrice(Number(event.target.value))}
                 />
-                <p>0 - {maxPrice} kr.</p>
+                <p>0 - {maxPrice === 0 ? highestPrice : maxPrice} kr.</p>
               </div>
             </details>
 
@@ -286,35 +278,6 @@ export default function ProductsPage() {
             </section>
           </section>
         </div>
-      <main>
-        <section className="products-grid">
-          {products.map((product) => (
-            <article key={product.id} className="product-card">
-              <NavLink to={`/products/${product.id}`} className="product-link">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="product-image"
-                />
-                <div className="product-info">
-                  <p className="product-brand">{product.brand}</p>
-                  <h2 className="product-title">{product.title}</h2>
-                  <div className="product-meta">
-                    <p className="product-color">{product.color}</p>
-                    <div className="product-pricing">
-                      {product.beforeprice ? (
-                        <p className="before-price">
-                          {product.beforeprice} kr.
-                        </p>
-                      ) : null}
-                      <p className="product-price">{product.price} kr.</p>
-                    </div>
-                  </div>
-                </div>
-              </NavLink>
-            </article>
-          ))}
-        </section>
       </main>
     </>
   );
