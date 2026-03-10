@@ -42,6 +42,7 @@ export default function ContactPage() {
       </section>
 
       <section className="contact-faq" aria-label="Frequently asked questions">
+        <h2>Frequently asked questions</h2>
         <h2>Frequently asked questions.</h2>
 
         <details>
