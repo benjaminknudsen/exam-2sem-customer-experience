@@ -1686,8 +1686,44 @@ main h3 {
   font-size: 1rem;
 }
 
+.product-brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.product-brand-row .product-brand {
+  margin: 0;
+}
+
+.product-card .product-heart-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  height: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.product-card .product-heart-btn:hover {
+  transform: none;
+}
+
+.product-card .product-heart {
+  width: 1.55rem;
+  height: 1.55rem;
+  display: block;
+  object-fit: contain;
+}
+
 .product-title {
-  margin: 0.2rem 0 0.75rem;
+  margin: 0 0 0.75rem;
   font-size: 1.2rem;
   line-height: 1.2;
   font-weight: 500;
