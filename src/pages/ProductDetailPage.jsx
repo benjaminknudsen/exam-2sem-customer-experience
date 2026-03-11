@@ -1,7 +1,11 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 
-export default function ProductDetailPage({ addToCart }) {
+export default function ProductDetailPage({
+  addToCart,
+  favoriteIds,
+  toggleFavorite,
+}) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -23,6 +27,22 @@ export default function ProductDetailPage({ addToCart }) {
     setSelectedSize("");
   }
 
+  const isFavorite = favoriteIds.has(product.id);
+
+  return (
+    <>
+      <main>
+        <section className="product-detail">
+          <img
+            src={product.image}
+            alt={product.title}
+            className="product-image"
+          />
+          <div className="product-info">
+            {/* small category text on top */}
+            <p className="product-category">{product.category}</p>
+            <p className="product-brand">{product.brand}</p>
+            <h2 className="product-title-detail">{product.title}</h2>
   if (!product) return <p>Loading…</p>;
 
   return (
@@ -55,6 +75,28 @@ export default function ProductDetailPage({ addToCart }) {
                 style={{ background: product.color.toLowerCase() }}
               ></span>
             </div>
+            <div className="product-actions">
+              <button
+                type="button"
+                className="add-to-bag"
+                onClick={() => addToCart(product)}
+                disabled={!product.inStock}
+              >
+                {product.inStock ? "Add to Bag" : "Out of stock"}
+              </button>
+              <button
+                type="button"
+                className="product-heart-btn"
+                onClick={() => toggleFavorite(product)}
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}${
+                    isFavorite ? "heart-add.png" : "heart.png"
+                  }`}
+                  alt="Favorite"
+                  className="product-heart"
+                />
+              </button>
             <div className="option-group sizes">
               <span>Product Size</span>
               <div className="size-buttons">

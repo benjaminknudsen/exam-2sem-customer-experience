@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { NavLink } from "react-router";
 
-export default function ProductsPage({ addToCart }) {
+export default function ProductsPage({
+  addToCart,
+  favoriteIds,
+  toggleFavorite,
+}) {
   const [products, setProducts] = useState([]);
-  // track which products have been "hearted" by the user
-  const [favorites, setFavorites] = useState({});
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedColors, setSelectedColors] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
@@ -183,6 +185,91 @@ export default function ProductsPage({ addToCart }) {
                   }
                   aria-label={`Filter by ${color}`}
                 >
+                  <option value="featured">Featured</option>
+                  <option value="price-asc">Price low-high</option>
+                  <option value="price-desc">Price high-low</option>
+                </select>
+              </div>
+            </details>
+
+            <button
+              type="button"
+              className="filter-reset"
+              onClick={clearFilters}
+              disabled={!hasActiveFilters}
+            >
+              Reset filters
+            </button>
+          </aside>
+
+          <section>
+            <p className="filter-result-count">
+              Showing {filteredProducts.length} products
+            </p>
+
+            {error ? (
+              <p className="products-empty">
+                Could not load products right now.
+              </p>
+            ) : null}
+
+            <section className="products-grid">
+              {filteredProducts.map((product) => (
+                <article key={product.id} className="product-card">
+                  <NavLink
+                    to={`/products/${product.id}`}
+                    className="product-link"
+                  >
+                    {product.discountLabel || product.lowStockLabel ? (
+                      <div className="product-card-badges">
+                        {product.discountLabel ? (
+                          <span className="product-badge-discount">
+                            {product.discountLabel}
+                          </span>
+                        ) : null}
+                        {product.lowStockLabel ? (
+                          <span className="product-badge-stock">
+                            {product.lowStockLabel}
+                          </span>
+                        ) : null}
+                      </div>
+                    ) : null}
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="product-image"
+                    />
+                    <div className="product-info">
+                      <div className="product-brand-row">
+                        <p className="product-brand">{product.brand}</p>
+                        <button
+                          type="button"
+                          className="product-heart-btn"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            toggleFavorite(product);
+                          }}
+                        >
+                          <img
+                            src={`${
+                              import.meta.env.BASE_URL
+                            }${favoriteIds.has(product.id) ? "heart-add.png" : "heart.png"}`}
+                            alt="Favorite"
+                            className="product-heart"
+                          />
+                        </button>
+                      </div>
+                      <h2 className="product-title">{product.title}</h2>
+                      <div className="product-meta">
+                        <span
+                          className="product-color-dot"
+                          role="img"
+                          aria-label={`Color: ${product.color}`}
+                          style={{
+                            background:
+                              colorSwatches[product.color] || "#d7d7d7",
+                          }}
                   <span
                     className="color-swatch-dot"
                     style={{ background: colorSwatches[color] || "#d7d7d7" }}
