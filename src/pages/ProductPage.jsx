@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { NavLink } from "react-router";
 
-export default function ProductsPage({ addToCart }) {
+export default function ProductsPage({
+  addToCart,
+  favoriteIds,
+  toggleFavorite,
+}) {
   const [products, setProducts] = useState([]);
-  // track which products have been "hearted" by the user
-  const [favorites, setFavorites] = useState({});
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedColors, setSelectedColors] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
@@ -315,19 +317,15 @@ export default function ProductsPage({ addToCart }) {
                           type="button"
                           className="product-heart-btn"
                           onClick={(e) => {
-                            // prevent link navigation when clicking the heart
                             e.preventDefault();
                             e.stopPropagation();
-                            setFavorites((prev) => ({
-                              ...prev,
-                              [product.id]: !prev[product.id],
-                            }));
+                            toggleFavorite(product);
                           }}
                         >
                           <img
                             src={`${
                               import.meta.env.BASE_URL
-                            }${favorites[product.id] ? "heart-add.png" : "heart.png"}`}
+                            }${favoriteIds.has(product.id) ? "heart-add.png" : "heart.png"}`}
                             alt="Favorite"
                             className="product-heart"
                           />

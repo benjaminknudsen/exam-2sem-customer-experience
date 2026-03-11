@@ -1,11 +1,13 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 
-export default function ProductDetailPage({ addToCart }) {
+export default function ProductDetailPage({
+  addToCart,
+  favoriteIds,
+  toggleFavorite,
+}) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  // local favourite state for this detail view
-  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     async function load() {
@@ -24,6 +26,8 @@ export default function ProductDetailPage({ addToCart }) {
   if (product === undefined) {
     return <p>Product not found.</p>;
   }
+
+  const isFavorite = favoriteIds.has(product.id);
 
   return (
     <>
@@ -84,7 +88,7 @@ export default function ProductDetailPage({ addToCart }) {
               <button
                 type="button"
                 className="product-heart-btn"
-                onClick={() => setIsFavorite((f) => !f)}
+                onClick={() => toggleFavorite(product)}
               >
                 <img
                   src={`${import.meta.env.BASE_URL}${

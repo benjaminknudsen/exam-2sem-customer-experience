@@ -9,10 +9,12 @@ import ServicesPage from "./pages/ServicesPage";
 import ProductsPage from "./pages/ProductPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import BasketPage from "./pages/BasketPage";
+import FavoritesPage from "./pages/FavoritesPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [favoriteItems, setFavoriteItems] = useState([]);
 
   function addToCart(product) {
     setCartItems((prevItems) => {
@@ -65,6 +67,27 @@ export default function App() {
     setCartItems([]);
   }
 
+  function toggleFavorite(product) {
+    setFavoriteItems((prevItems) => {
+      const exists = prevItems.some((item) => item.id === product.id);
+
+      if (exists) {
+        return prevItems.filter((item) => item.id !== product.id);
+      }
+
+      return [
+        ...prevItems,
+        {
+          id: product.id,
+          title: product.title,
+          brand: product.brand,
+          image: product.image,
+          price: product.price,
+        },
+      ];
+    });
+  }
+
   const cartCount = useMemo(
     () => cartItems.reduce((total, item) => total + item.quantity, 0),
     [cartItems],
@@ -74,6 +97,11 @@ export default function App() {
     () =>
       cartItems.reduce((total, item) => total + item.price * item.quantity, 0),
     [cartItems],
+  );
+
+  const favoriteIds = useMemo(
+    () => new Set(favoriteItems.map((item) => item.id)),
+    [favoriteItems],
   );
 
   return (
@@ -87,11 +115,33 @@ export default function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route
           path="/products"
-          element={<ProductsPage addToCart={addToCart} />}
+          element={
+            <ProductsPage
+              addToCart={addToCart}
+              favoriteIds={favoriteIds}
+              toggleFavorite={toggleFavorite}
+            />
+          }
         />
         <Route
           path="/products/:id"
-          element={<ProductDetailPage addToCart={addToCart} />}
+          element={
+            <ProductDetailPage
+              addToCart={addToCart}
+              favoriteIds={favoriteIds}
+              toggleFavorite={toggleFavorite}
+            />
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <FavoritesPage
+              favoriteItems={favoriteItems}
+              toggleFavorite={toggleFavorite}
+              addToCart={addToCart}
+            />
+          }
         />
         <Route
           path="/basket"
