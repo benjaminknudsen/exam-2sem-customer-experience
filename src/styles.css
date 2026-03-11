@@ -832,6 +832,16 @@ main h3 {
   color: #000000;
 }
 
+.footer-email-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-email-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .footer-copyright {
   margin: 2.6rem 0 0;
   padding-top: 1rem;
