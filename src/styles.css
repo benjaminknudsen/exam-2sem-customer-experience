@@ -60,6 +60,10 @@ nav a.active {
   text-underline-offset: 4px;
 }
 
+nav a.nav-logo-link.active {
+  text-decoration: none;
+}
+
 .shipping-banner {
   position: sticky;
   top: var(--nav-height);
