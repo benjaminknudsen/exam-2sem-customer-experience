@@ -1,30 +1,30 @@
 import { useState } from "react";
 
-export default function Footer() {
-  const sections = [
-    {
-      title: "CONTACT",
-      items: ["DK 0045 23831322", "E-MAIL US", "STORE LOCATOR"],
-    },
-    {
-      title: "CUSTOMER SERVICE",
-      items: [
-        "FREQUENTY ASKED QUESTIONS",
-        "MANAGE YOUR ORDER",
-        "ONLINE SERVICE",
-        "TRACK YOUR ORDER",
-      ],
-    },
-    {
-      title: "CORPORATE",
-      items: ["BRAND INFORMATION", "SUSTAINABILITY", "CAREER OPTIONS"],
-    },
-    {
-      title: "SOCIAL MEDIA",
-      items: ["INSTAGRAM", "FACEBOOK", "TIKTOK", "YOUTUBE"],
-    },
-  ];
+const sections = [
+  {
+    title: "CONTACT",
+    items: ["DK 0045 23831322", "E-MAIL US", "STORE LOCATOR"],
+  },
+  {
+    title: "CUSTOMER SERVICE",
+    items: [
+      "FREQUENTLY ASKED QUESTIONS",
+      "MANAGE YOUR ORDER",
+      "ONLINE SERVICE",
+      "TRACK YOUR ORDER",
+    ],
+  },
+  {
+    title: "CORPORATE",
+    items: ["BRAND INFORMATION", "SUSTAINABILITY", "CAREER OPTIONS"],
+  },
+  {
+    title: "SOCIAL MEDIA",
+    items: ["INSTAGRAM", "FACEBOOK", "TIKTOK", "YOUTUBE"],
+  },
+];
 
+export default function Footer() {
   const [openSections, setOpenSections] = useState(() =>
     Object.fromEntries(sections.map((section) => [section.title, false])),
   );
@@ -84,7 +84,7 @@ export default function Footer() {
           <form className="footer-form">
             <input
               type="email"
-              placeholder="Enter your e-mail adress here"
+              placeholder="Enter your e-mail address here"
               aria-label="Email"
             />
             <button type="submit">CONTINUE</button>

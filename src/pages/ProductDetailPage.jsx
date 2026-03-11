@@ -23,15 +23,10 @@ export default function ProductDetailPage({
 
   function handleAddToBag() {
     addToCart(product);
-    setSelectedSize("");
   }
 
   if (!product) {
     return <p>Loading…</p>;
-  }
-
-  if (product === undefined) {
-    return <p>Product not found.</p>;
   }
 
   const isFavorite = favoriteIds.has(product.id);

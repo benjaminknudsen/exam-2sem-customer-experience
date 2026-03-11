@@ -569,9 +569,10 @@ nav a.active {
   }
 }
 
-/* searchbar icon in the nav */
-.nav-searchbar {
+/* shared SVG icon size for nav */
+.nav-icon {
   display: inline-block;
+  width: 1.5rem;
   height: 1.5rem;
   vertical-align: middle;
 }
@@ -579,13 +580,6 @@ nav a.active {
 /* push the search link to the right edge of the bar */
 .search-link {
   margin-left: auto;
-}
-
-/* profile icon in the nav */
-.nav-profile {
-  display: inline-block;
-  height: 1.5rem;
-  vertical-align: middle;
 }
 
 /* heart icon for favorites */
@@ -600,13 +594,6 @@ nav a.active {
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 1rem;
-}
-
-/* basket icon */
-.nav-basket {
-  display: inline-block;
-  height: 1.5rem;
-  vertical-align: middle;
 }
 
 .basket-link-nav {
@@ -1788,7 +1775,9 @@ main h3 {
 .product-heart {
   fill: none;
   stroke: #111111;
-  stroke-width: 1.8;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
   pointer-events: none;
 }
 
@@ -1929,12 +1918,12 @@ main h3 {
   }
 }
 
-.nav-logo {
-  width: 60px;
-  height: 28px; /* din "frame"-størrelse */
-  object-fit: cover; /* fylder rammen og beskærer */
-  object-position: center;
-  display: block;
+.nav-logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #111;
+  text-decoration: none;
 }
 
 .home-hero {

@@ -24,65 +24,56 @@ export default function BasketPage({
   }
 
   return (
-    <>
-      <header>
-        <h1>Basket</h1>
-      </header>
-      <main className="basket-main">
-        <section className="basket-list">
-          {cartItems.map((item) => (
-            <article key={item.id} className="basket-item">
-              <img src={item.image} alt={item.title} className="basket-image" />
-
-              <div className="basket-item-info">
-                <p className="basket-brand">{item.brand}</p>
-                <h2 className="basket-title">{item.title}</h2>
-                <p className="basket-price">{item.price} kr.</p>
-              </div>
-
-              <div className="basket-actions">
-                <div className="basket-quantity">
-                  <button
-                    type="button"
-                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                  >
-                    −
-                  </button>
-                  <span>{item.quantity}</span>
-                  <button
-                    type="button"
-                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                  >
-                    +
-                  </button>
-                </div>
-
+    <main className="basket-main">
+      <section className="basket-list">
+        {cartItems.map((item) => (
+          <article key={item.id} className="basket-item">
+            <img src={item.image} alt={item.title} className="basket-image" />
+            <div className="basket-item-info">
+              <p className="basket-brand">{item.brand}</p>
+              <h2 className="basket-title">{item.title}</h2>
+              <p className="basket-price">{item.price} kr.</p>
+            </div>
+            <div className="basket-actions">
+              <div className="basket-quantity">
                 <button
                   type="button"
-                  className="basket-remove"
-                  onClick={() => removeFromCart(item.id)}
+                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
                 >
-                  Remove
+                  −
+                </button>
+                <span>{item.quantity}</span>
+                <button
+                  type="button"
+                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                >
+                  +
                 </button>
               </div>
-            </article>
-          ))}
-        </section>
-
-        <aside className="basket-summary">
-          <h2>Order summary</h2>
-          <p className="basket-total">
-            <span>Total: </span>
-            <span className="basket-total-amount">{cartTotal} kr.</span>
-          </p>
-          <button type="button" className="basket-clear" onClick={clearCart}>
-            Clear basket
-          </button>
-          <NavLink to="/checkout" className="basket-checkout">
-            Go to checkout
-          </NavLink>
-        </aside>
-      </main>
-    </>
+              <button
+                type="button"
+                className="basket-remove"
+                onClick={() => removeFromCart(item.id)}
+              >
+                Remove
+              </button>
+            </div>
+          </article>
+        ))}
+      </section>
+      <aside className="basket-summary">
+        <h2>Order summary</h2>
+        <p className="basket-total">
+          <span>Total: </span>
+          <span className="basket-total-amount">{cartTotal} kr.</span>
+        </p>
+        <button type="button" className="basket-clear" onClick={clearCart}>
+          Clear basket
+        </button>
+        <NavLink to="/checkout" className="basket-checkout">
+          Go to checkout
+        </NavLink>
+      </aside>
+    </main>
   );
 }

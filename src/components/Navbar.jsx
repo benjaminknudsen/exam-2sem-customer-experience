@@ -1,17 +1,13 @@
 import { NavLink } from "react-router";
 
-export default function Navbar({ cartCount }) {
-  const logoSrc = `${import.meta.env.BASE_URL}blunt.logo.png`;
-  const searchSrc = `${import.meta.env.BASE_URL}searchbar.png`;
-  const profileSrc = `${import.meta.env.BASE_URL}profile-circle.png`;
-  const basketSrc = `${import.meta.env.BASE_URL}bag-2.png`;
-  const flagSrc = `${import.meta.env.BASE_URL}engelskflag.svg`;
+const BASE = import.meta.env.BASE_URL;
 
+export default function Navbar({ cartCount }) {
   return (
     <nav>
       <div className="nav-left">
-        <NavLink to="/">
-          <img src={logoSrc} alt="Blunt" className="nav-logo" />
+        <NavLink to="/" className="nav-logo-link">
+          <span className="nav-logo-text">blunt.</span>
         </NavLink>
         <NavLink to="/products">Shop</NavLink>
         <NavLink to="/new-arrivals">New arrivals</NavLink>
@@ -19,11 +15,35 @@ export default function Navbar({ cartCount }) {
       </div>
       <div className="nav-right">
         <NavLink to="/search">
-          <img src={searchSrc} alt="Søg" className="nav-searchbar" />
+          <svg
+            viewBox="0 0 24 24"
+            className="nav-icon"
+            aria-label="Søg"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
         </NavLink>
         <NavLink to="/contact">Contact</NavLink>
         <NavLink to="/profile">
-          <img src={profileSrc} alt="profile" className="nav-profile" />
+          <svg
+            viewBox="0 0 24 24"
+            className="nav-icon"
+            aria-label="Profil"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
         </NavLink>
         <NavLink to="/favorites" className="nav-heart-link">
           <svg
@@ -35,13 +55,29 @@ export default function Navbar({ cartCount }) {
           </svg>
         </NavLink>
         <NavLink to="/basket" className="basket-link-nav">
-          <img src={basketSrc} alt="Kurv" className="nav-basket" />
+          <svg
+            viewBox="0 0 24 24"
+            className="nav-icon"
+            aria-label="Kurv"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M19 7H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
+            <path d="M16 7V5a4 4 0 0 0-8 0v2" />
+          </svg>
           {cartCount > 0 ? (
             <span className="basket-count">{cartCount}</span>
           ) : null}
         </NavLink>
         <NavLink to="/language">
-          <img src={flagSrc} alt="English flag" className="nav-flag" />
+          <img
+            src={`${BASE}engelskflag.svg`}
+            alt="English flag"
+            className="nav-flag"
+          />
         </NavLink>
       </div>
     </nav>

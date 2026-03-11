@@ -1,39 +1,42 @@
 import { useState } from "react";
 import { NavLink } from "react-router";
 
+const BASE = import.meta.env.BASE_URL;
+
+const landingBg = `${BASE}landingpagebackground.png`;
+const popupImage = `${BASE}popup.png`;
+const designImage = `${BASE}blunt.design.png`;
+
+const collections = [
+  {
+    title: "CORE DROP",
+    subtitle: "Essentials",
+    image: `${BASE}essential.png`,
+    variant: "light",
+  },
+  {
+    image: designImage,
+    variant: "dark",
+  },
+  {
+    title: "AFTER HOURS",
+    subtitle: "Urban",
+    image: `${BASE}after.hours.png`,
+    variant: "light",
+    textTone: "light-text",
+  },
+];
+
+const socialProof = [
+  { value: "100%", label: "Authentic", tone: "red" },
+  { value: "10k+", label: "Community members", tone: "blue" },
+  { value: "4.8*", label: "Trustpilot", tone: "orange" },
+  { value: "7+", label: "Top brands", tone: "purple" },
+  { value: "90%", label: "Sell out rate on drops", tone: "green" },
+];
+
 export default function HomePage() {
   const [isPopupOpen, setIsPopupOpen] = useState(true);
-  const landingBg = `${import.meta.env.BASE_URL}landingpagebackground.png`;
-  const popupImage = `${import.meta.env.BASE_URL}popup.png`;
-  const designImage = `${import.meta.env.BASE_URL}blunt.design.png`;
-  const afterHoursImage = `${import.meta.env.BASE_URL}after.hours.png`;
-  const essentialImage = `${import.meta.env.BASE_URL}essential.png`;
-  const collections = [
-    {
-      title: "CORE DROP",
-      subtitle: "Essentials",
-      image: essentialImage,
-      variant: "light",
-    },
-    {
-      image: designImage,
-      variant: "dark",
-    },
-    {
-      title: "AFTER HOURS",
-      subtitle: "Urban",
-      image: afterHoursImage,
-      variant: "light",
-      textTone: "light-text",
-    },
-  ];
-  const socialProof = [
-    { value: "100%", label: "Authentic", tone: "red" },
-    { value: "10k+", label: "Community members", tone: "blue" },
-    { value: "4.8*", label: "Trustpilot", tone: "orange" },
-    { value: "7+", label: "Top brands", tone: "purple" },
-    { value: "90%", label: "Sell out rate on drops", tone: "green" },
-  ];
 
   return (
     <main className="home-main">
