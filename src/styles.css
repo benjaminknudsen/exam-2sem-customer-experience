@@ -1287,6 +1287,7 @@ main h3 {
 
 .sidebar-price input {
   width: 100%;
+  accent-color: #f50135;
 }
 
 .sidebar-price p {
