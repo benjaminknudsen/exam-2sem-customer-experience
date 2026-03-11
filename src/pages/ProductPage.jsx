@@ -145,116 +145,45 @@ export default function ProductsPage({
   }
 
   return (
-    <>
-      <main className="products-main">
-        <div className="products-layout">
-          <aside className="products-sidebar" aria-label="Product filters">
-            <details open className="sidebar-group">
-              <summary>PRODUCT TYPE</summary>
-              <div className="sidebar-options">
-                {categories.map((category) => (
-                  <label key={category} className="sidebar-option-row">
-                    <input
-                      type="checkbox"
-                      checked={selectedCategories.includes(category)}
-                      onChange={() =>
-                        toggleValue(
-                          category,
-                          selectedCategories,
-                          setSelectedCategories,
-                        )
-                      }
-                    />
-                    <span>{category}</span>
-                  </label>
-                ))}
-              </div>
-            </details>
-
-            <details className="sidebar-group">
-              <summary>COLORS</summary>
-              <div className="sidebar-colors">
-                {colors.map((color) => (
-                  <button
-                    key={color}
-                    type="button"
-                    className={`color-swatch ${
-                      selectedColors.includes(color)
-                        ? "color-swatch-active"
-                        : ""
-                    }`}
-                    onClick={() =>
-                      toggleValue(color, selectedColors, setSelectedColors)
+    <main className="products-main">
+      <div className="products-layout">
+        <aside className="products-sidebar" aria-label="Product filters">
+          <details open className="sidebar-group">
+            <summary>PRODUCT TYPE</summary>
+            <div className="sidebar-options">
+              {categories.map((category) => (
+                <label key={category} className="sidebar-option-row">
+                  <input
+                    type="checkbox"
+                    checked={selectedCategories.includes(category)}
+                    onChange={() =>
+                      toggleValue(
+                        category,
+                        selectedCategories,
+                        setSelectedCategories,
+                      )
                     }
-                    aria-label={`Filter by ${color}`}
-                  >
-                    <span
-                      className="color-swatch-dot"
-                      style={{ background: colorSwatches[color] || "#d7d7d7" }}
-                    />
-                    <span className="color-swatch-label">{color}</span>
-                  </button>
-                ))}
-              </div>
-            </details>
+                  />
+                  <span>{category}</span>
+                </label>
+              ))}
+            </div>
+          </details>
 
-            <details className="sidebar-group">
-              <summary>SIZE</summary>
-              <div className="sidebar-options">
-                {sizeOptions.map((size) => (
-                  <label key={size} className="sidebar-option-row">
-                    <input
-                      type="checkbox"
-                      checked={selectedSizes.includes(size)}
-                      onChange={() =>
-                        toggleValue(size, selectedSizes, setSelectedSizes)
-                      }
-                    />
-                    <span>{size}</span>
-                  </label>
-                ))}
-              </div>
-            </details>
-
-            <details className="sidebar-group">
-              <summary>BRANDS</summary>
-              <div className="sidebar-options">
-                {brands.map((brand) => (
-                  <label key={brand} className="sidebar-option-row">
-                    <input
-                      type="checkbox"
-                      checked={selectedBrands.includes(brand)}
-                      onChange={() =>
-                        toggleValue(brand, selectedBrands, setSelectedBrands)
-                      }
-                    />
-                    <span>{brand}</span>
-                  </label>
-                ))}
-              </div>
-            </details>
-
-            <details open className="sidebar-group">
-              <summary>PRICE</summary>
-              <div className="sidebar-price">
-                <input
-                  type="range"
-                  min="0"
-                  max={highestPrice}
-                  value={maxPrice === 0 ? highestPrice : maxPrice}
-                  onChange={(event) => setMaxPrice(Number(event.target.value))}
-                />
-                <p>0 - {maxPrice === 0 ? highestPrice : maxPrice} kr.</p>
-              </div>
-            </details>
-
-            <details className="sidebar-group">
-              <summary>SORT BY</summary>
-              <div className="sidebar-sort-wrap">
-                <select
-                  className="sidebar-sort"
-                  value={sortBy}
-                  onChange={(event) => setSortBy(event.target.value)}
+          <details className="sidebar-group">
+            <summary>COLORS</summary>
+            <div className="sidebar-colors">
+              {colors.map((color) => (
+                <button
+                  key={color}
+                  type="button"
+                  className={`color-swatch ${
+                    selectedColors.includes(color) ? "color-swatch-active" : ""
+                  }`}
+                  onClick={() =>
+                    toggleValue(color, selectedColors, setSelectedColors)
+                  }
+                  aria-label={`Filter by ${color}`}
                 >
                   <option value="featured">Featured</option>
                   <option value="price-asc">Price low-high</option>
@@ -341,38 +270,191 @@ export default function ProductsPage({
                             background:
                               colorSwatches[product.color] || "#d7d7d7",
                           }}
+                  <span
+                    className="color-swatch-dot"
+                    style={{ background: colorSwatches[color] || "#d7d7d7" }}
+                  />
+                  <span className="color-swatch-label">{color}</span>
+                </button>
+              ))}
+            </div>
+          </details>
+
+          <details className="sidebar-group">
+            <summary>SIZE</summary>
+            <div className="sidebar-options">
+              {sizeOptions.map((size) => (
+                <label key={size} className="sidebar-option-row">
+                  <input
+                    type="checkbox"
+                    checked={selectedSizes.includes(size)}
+                    onChange={() =>
+                      toggleValue(size, selectedSizes, setSelectedSizes)
+                    }
+                  />
+                  <span>{size}</span>
+                </label>
+              ))}
+            </div>
+          </details>
+
+          <details className="sidebar-group">
+            <summary>BRANDS</summary>
+            <div className="sidebar-options">
+              {brands.map((brand) => (
+                <label key={brand} className="sidebar-option-row">
+                  <input
+                    type="checkbox"
+                    checked={selectedBrands.includes(brand)}
+                    onChange={() =>
+                      toggleValue(brand, selectedBrands, setSelectedBrands)
+                    }
+                  />
+                  <span>{brand}</span>
+                </label>
+              ))}
+            </div>
+          </details>
+
+          <details open className="sidebar-group">
+            <summary>PRICE</summary>
+            <div className="sidebar-price">
+              <input
+                type="range"
+                min="0"
+                max={highestPrice}
+                value={maxPrice === 0 ? highestPrice : maxPrice}
+                onChange={(event) => setMaxPrice(Number(event.target.value))}
+              />
+              <p>0 - {maxPrice === 0 ? highestPrice : maxPrice} kr.</p>
+            </div>
+          </details>
+
+          <details className="sidebar-group">
+            <summary>SORT BY</summary>
+            <div className="sidebar-sort-wrap">
+              <select
+                className="sidebar-sort"
+                value={sortBy}
+                onChange={(event) => setSortBy(event.target.value)}
+              >
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price low-high</option>
+                <option value="price-desc">Price high-low</option>
+              </select>
+            </div>
+          </details>
+
+          <button
+            type="button"
+            className="filter-reset"
+            onClick={clearFilters}
+            disabled={!hasActiveFilters}
+          >
+            Reset filters
+          </button>
+        </aside>
+
+        <section>
+          <p className="filter-result-count">
+            Showing {filteredProducts.length} products
+          </p>
+
+          {error ? (
+            <p className="products-empty">Could not load products right now.</p>
+          ) : null}
+
+          <section className="products-grid">
+            {filteredProducts.map((product) => (
+              <article key={product.id} className="product-card">
+                <NavLink
+                  to={`/products/${product.id}`}
+                  className="product-link"
+                >
+                  {product.discountLabel || product.lowStockLabel ? (
+                    <div className="product-card-badges">
+                      {product.discountLabel ? (
+                        <span className="product-badge-discount">
+                          {product.discountLabel}
+                        </span>
+                      ) : null}
+                      {product.lowStockLabel ? (
+                        <span className="product-badge-stock">
+                          {product.lowStockLabel}
+                        </span>
+                      ) : null}
+                    </div>
+                  ) : null}
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="product-image"
+                  />
+                  <div className="product-info">
+                    <div className="product-brand-row">
+                      <p className="product-brand">{product.brand}</p>
+                      <button
+                        type="button"
+                        className="product-heart-btn"
+                        onClick={(e) => {
+                          // prevent link navigation when clicking the heart
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setFavorites((prev) => ({
+                            ...prev,
+                            [product.id]: !prev[product.id],
+                          }));
+                        }}
+                      >
+                        <img
+                          src={`${
+                            import.meta.env.BASE_URL
+                          }${favorites[product.id] ? "heart-add.png" : "heart.png"}`}
+                          alt="Favorite"
+                          className="product-heart"
                         />
-                        <div className="product-pricing">
-                          {product.beforeprice ? (
-                            <p className="before-price-card">
-                              {product.beforeprice} kr.
-                            </p>
-                          ) : null}
-                          <p className="product-price">{product.price} kr.</p>
-                        </div>
+                      </button>
+                    </div>
+                    <h2 className="product-title">{product.title}</h2>
+                    <div className="product-meta">
+                      <span
+                        className="product-color-dot"
+                        role="img"
+                        aria-label={`Color: ${product.color}`}
+                        style={{
+                          background: colorSwatches[product.color] || "#d7d7d7",
+                        }}
+                      />
+                      <div className="product-pricing">
+                        {product.beforeprice ? (
+                          <p className="before-price-card">
+                            {product.beforeprice} kr.
+                          </p>
+                        ) : null}
+                        <p className="product-price">{product.price} kr.</p>
                       </div>
                     </div>
-                  </NavLink>
-                  <button
-                    type="button"
-                    className="product-card-add"
-                    onClick={() => addToCart(product)}
-                    disabled={!product.inStock}
-                  >
-                    {product.inStock ? "Add to Bag" : "Out of stock"}
-                  </button>
-                </article>
-              ))}
+                  </div>
+                </NavLink>
+                <button
+                  type="button"
+                  className="product-card-add"
+                  onClick={() => addToCart(product)}
+                  disabled={!product.inStock}
+                >
+                  {product.inStock ? "See more" : "Out of stock"}
+                </button>
+              </article>
+            ))}
 
-              {filteredProducts.length === 0 ? (
-                <p className="products-empty">
-                  No products match the selected filters.
-                </p>
-              ) : null}
-            </section>
+            {filteredProducts.length === 0 ? (
+              <p className="products-empty">
+                No products match the selected filters.
+              </p>
+            ) : null}
           </section>
-        </div>
-      </main>
-    </>
+        </section>
+      </div>
+    </main>
   );
 }

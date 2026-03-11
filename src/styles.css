@@ -624,7 +624,7 @@ nav a.active {
 /* denmark flag icon */
 .nav-flag {
   display: inline-block;
-  height: 1.5rem;
+  height: 1.15rem;
   vertical-align: middle;
 }
 
@@ -962,6 +962,12 @@ main h3 {
   background: #fff;
   cursor: pointer;
 }
+
+.size-btn-active {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
 .product-actions {
   display: flex;
   gap: 1rem;
@@ -1281,6 +1287,7 @@ main h3 {
 
 .sidebar-price input {
   width: 100%;
+  accent-color: #f50135;
 }
 
 .sidebar-price p {
