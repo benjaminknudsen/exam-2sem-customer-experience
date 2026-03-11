@@ -355,7 +355,7 @@ export default function ProductsPage({ addToCart }) {
                   onClick={() => addToCart(product)}
                   disabled={!product.inStock}
                 >
-                  {product.inStock ? "Add to Bag" : "Out of stock"}
+                  {product.inStock ? "See more" : "Out of stock"}
                 </button>
               </article>
             ))}

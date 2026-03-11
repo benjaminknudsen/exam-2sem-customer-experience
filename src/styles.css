@@ -962,6 +962,12 @@ main h3 {
   background: #fff;
   cursor: pointer;
 }
+
+.size-btn-active {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
 .product-actions {
   display: flex;
   gap: 1rem;

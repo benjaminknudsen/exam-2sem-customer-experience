@@ -5,6 +5,7 @@ export default function ProductDetailPage({ addToCart }) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [selectedSize, setSelectedSize] = useState("");
 
   useEffect(() => {
     async function load() {
@@ -12,9 +13,15 @@ export default function ProductDetailPage({ addToCart }) {
       const data = await res.json();
       const found = data.find((p) => String(p.id) === id);
       setProduct(found);
+      setSelectedSize("");
     }
     load();
   }, [id]);
+
+  function handleAddToBag() {
+    addToCart(product);
+    setSelectedSize("");
+  }
 
   if (!product) return <p>Loading…</p>;
 
@@ -52,7 +59,13 @@ export default function ProductDetailPage({ addToCart }) {
               <span>Product Size</span>
               <div className="size-buttons">
                 {["XS", "S", "M", "L", "XL"].map((sz) => (
-                  <button key={sz} className="size-btn">
+                  <button
+                    key={sz}
+                    type="button"
+                    className={`size-btn ${selectedSize === sz ? "size-btn-active" : ""}`}
+                    aria-pressed={selectedSize === sz}
+                    onClick={() => setSelectedSize(sz)}
+                  >
                     {sz}
                   </button>
                 ))}
@@ -63,7 +76,7 @@ export default function ProductDetailPage({ addToCart }) {
             <button
               type="button"
               className="add-to-bag"
-              onClick={() => addToCart(product)}
+              onClick={handleAddToBag}
               disabled={!product.inStock}
             >
               {product.inStock ? "Add to Bag" : "Out of stock"}
