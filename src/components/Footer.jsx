@@ -57,7 +57,18 @@ export default function Footer() {
               {openSections[section.title] && (
                 <ul className="footer-items">
                   {section.items.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item}>
+                      {item === "E-MAIL US" ? (
+                        <a
+                          href="mailto:support@blunt.com"
+                          className="footer-email-link"
+                        >
+                          {item}
+                        </a>
+                      ) : (
+                        item
+                      )}
+                    </li>
                   ))}
                 </ul>
               )}
