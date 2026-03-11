@@ -591,8 +591,15 @@ nav a.active {
 /* heart icon for favorites */
 .nav-heart {
   display: inline-block;
+  width: 1.5rem;
   height: 1.5rem;
   vertical-align: middle;
+}
+
+.nav-heart-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
 }
 
 /* basket icon */
@@ -988,6 +995,8 @@ main h3 {
 .product-actions .product-heart {
   width: 2.5rem;
   height: 2.5rem;
+  display: block;
+  pointer-events: none;
 }
 
 .add-to-bag {
@@ -1762,7 +1771,20 @@ main h3 {
   width: 1.55rem;
   height: 1.55rem;
   display: block;
-  object-fit: contain;
+  pointer-events: none;
+}
+
+/* shared SVG heart styles — default = hollow, active = filled */
+.product-heart {
+  fill: none;
+  stroke: #111111;
+  stroke-width: 1.8;
+  pointer-events: none;
+}
+
+.product-heart.product-heart-active {
+  fill: #111111;
+  stroke: #111111;
 }
 
 .product-title {
