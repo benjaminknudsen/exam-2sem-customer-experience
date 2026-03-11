@@ -8,7 +8,6 @@ export default function ProductDetailPage({
 }) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [isFavorite, setIsFavorite] = useState(false);
   const [selectedSize, setSelectedSize] = useState("");
 
   useEffect(() => {
@@ -27,23 +26,15 @@ export default function ProductDetailPage({
     setSelectedSize("");
   }
 
-  const isFavorite = favoriteIds.has(product.id);
+  if (!product) {
+    return <p>Loading…</p>;
+  }
 
-  return (
-    <>
-      <main>
-        <section className="product-detail">
-          <img
-            src={product.image}
-            alt={product.title}
-            className="product-image"
-          />
-          <div className="product-info">
-            {/* small category text on top */}
-            <p className="product-category">{product.category}</p>
-            <p className="product-brand">{product.brand}</p>
-            <h2 className="product-title-detail">{product.title}</h2>
-  if (!product) return <p>Loading…</p>;
+  if (product === undefined) {
+    return <p>Product not found.</p>;
+  }
+
+  const isFavorite = favoriteIds.has(product.id);
 
   return (
     <main>
@@ -75,45 +66,24 @@ export default function ProductDetailPage({
                 style={{ background: product.color.toLowerCase() }}
               ></span>
             </div>
-            <div className="product-actions">
-              <button
-                type="button"
-                className="add-to-bag"
-                onClick={() => addToCart(product)}
-                disabled={!product.inStock}
-              >
-                {product.inStock ? "Add to Bag" : "Out of stock"}
-              </button>
-              <button
-                type="button"
-                className="product-heart-btn"
-                onClick={() => toggleFavorite(product)}
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}${
-                    isFavorite ? "heart-add.png" : "heart.png"
-                  }`}
-                  alt="Favorite"
-                  className="product-heart"
-                />
-              </button>
             <div className="option-group sizes">
               <span>Product Size</span>
               <div className="size-buttons">
-                {["XS", "S", "M", "L", "XL"].map((sz) => (
+                {["XS", "S", "M", "L", "XL"].map((size) => (
                   <button
-                    key={sz}
+                    key={size}
                     type="button"
-                    className={`size-btn ${selectedSize === sz ? "size-btn-active" : ""}`}
-                    aria-pressed={selectedSize === sz}
-                    onClick={() => setSelectedSize(sz)}
+                    className={`size-btn ${selectedSize === size ? "size-btn-active" : ""}`}
+                    aria-pressed={selectedSize === size}
+                    onClick={() => setSelectedSize(size)}
                   >
-                    {sz}
+                    {size}
                   </button>
                 ))}
               </div>
             </div>
           </div>
+
           <div className="product-actions">
             <button
               type="button"
@@ -126,7 +96,7 @@ export default function ProductDetailPage({
             <button
               type="button"
               className="product-heart-btn"
-              onClick={() => setIsFavorite((f) => !f)}
+              onClick={() => toggleFavorite(product)}
             >
               <img
                 src={`${import.meta.env.BASE_URL}${
