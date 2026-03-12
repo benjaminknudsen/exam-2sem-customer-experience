@@ -573,7 +573,7 @@ nav a.nav-logo-link.active {
   }
 }
 
-/* shared SVG icon size for nav */
+/* Fælles SVG-ikonstørrelse til navigation */
 .nav-icon {
   display: inline-block;
   width: 1.5rem;
@@ -581,12 +581,12 @@ nav a.nav-logo-link.active {
   vertical-align: middle;
 }
 
-/* push the search link to the right edge of the bar */
+/* Skub søgelinket ud til højre kant af bjælken */
 .search-link {
   margin-left: auto;
 }
 
-/* heart icon for favorites */
+/* Hjerteikon til favoritter */
 .nav-heart {
   display: inline-block;
   width: 1.5rem;
@@ -619,7 +619,7 @@ nav a.nav-logo-link.active {
   padding: 0 0.15rem;
 }
 
-/* denmark flag icon */
+/* Dansk flag-ikon */
 .nav-flag {
   display: inline-block;
   height: 1.15rem;
@@ -871,7 +871,7 @@ main h3 {
   display: grid;
 }
 
-/* detail page layout */
+/* Layout for detaljeside */
 .product-detail {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -891,12 +891,12 @@ main h3 {
   line-height: 1.5;
 }
 
-/* detail page specific tweaks */
+/* Specifikke justeringer til detaljesiden */
 .product-category {
   font-size: 0.9rem;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.6);
-  margin: 0 0 1rem 0; /* add space below category for detail pages */
+  margin: 0 0 1rem 0; /* Tilføj luft under kategori på detaljesider */
 }
 .product-title-detail {
   margin: 0.25rem 0 0.5rem;
@@ -908,7 +908,7 @@ main h3 {
   margin: 0.4rem 0 3.2rem;
 }
 
-/* make price larger on the detail page */
+/* Gør prisen større på detaljesiden */
 .product-detail .product-price {
   font-size: 1.6rem;
   font-weight: 800;
@@ -920,7 +920,7 @@ main h3 {
   text-decoration: line-through;
 }
 .product-options {
-  margin-top: 2rem; /* a bit more space between description and options */
+  margin-top: 2rem; /* Lidt mere luft mellem beskrivelse og valg */
 }
 .option-group {
   margin-bottom: 1rem;
@@ -935,7 +935,7 @@ main h3 {
   border: 1px solid #ccc;
 }
 
-/* stack color label and swatch vertically */
+/* Stable farveetiket og farveprøve lodret */
 .color-group {
   display: flex;
   flex-direction: column;
@@ -946,14 +946,14 @@ main h3 {
   margin-top: 0.5rem;
 }
 
-/* label above the color swatch */
+/* Etiket over farveprøven */
 .color-group > span {
   font-size: 1.3rem;
   font-weight: 600;
   color: #111111;
 }
 
-/* make the 'Product Size' label match the color label */
+/* Gør 'Product Size'-etiketten ens med farveetiketten */
 .sizes > span {
   font-size: 1.3rem;
   font-weight: 600;
@@ -1028,7 +1028,7 @@ main h3 {
   cursor: not-allowed;
 }
 
-/* remove underline from product cards */
+/* Fjern understregning fra produktkort */
 .product-link {
   display: flex;
   flex-direction: column;
@@ -1709,7 +1709,7 @@ main h3 {
 
 .product-image {
   width: 100%;
-  /* make card images square rather than a fixed tall rectangle */
+  /* Gør kortbilleder kvadratiske i stedet for et fast højt rektangel */
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 0;
@@ -1730,7 +1730,7 @@ main h3 {
 
 .product-brand {
   margin: 0 0 0.5rem 0;
-  font-size: 1.6rem; /* increased for better readability on detail pages */
+  font-size: 1.6rem; /* Øget for bedre læsbarhed på detaljesider */
   font-weight: 400;
   color: #3b3b3b;
 }
@@ -1775,7 +1775,6 @@ main h3 {
   pointer-events: none;
 }
 
-/* shared SVG heart styles — default = hollow, active = filled */
 .product-heart {
   fill: none;
   stroke: #111111;
@@ -1807,8 +1806,8 @@ main h3 {
 }
 
 .product-color-dot {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 999px;
   flex-shrink: 0;
 }
